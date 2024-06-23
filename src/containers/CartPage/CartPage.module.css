@@ -1,0 +1,235 @@
+@import '../../styles/customMediaQueries.css';
+
+.root {
+  background-color: #fff;
+}
+
+.listingCards {
+  padding: 0 0 72px 0;
+
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 24px;
+  width: 100%;
+
+  /* @media (min-width: 550px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (--viewportMedium) {
+    padding: 0 0 96px 0;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (--viewportLarge) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1440px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media (--viewportXLarge) {
+    grid-template-columns: repeat(5, 1fr);
+  } */
+}
+.listingCard {
+  width: 100%;
+  display: flex;
+  gap: 47px;
+}
+
+.content {
+  max-width: 1380px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 30px;
+}
+
+.heading {
+  font-family: 'Poppins';
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.cartPanel {
+  display: flex;
+  gap: 20px;
+  border-top: 1px solid #8e8e8e;
+  padding: 37px 0px;
+  @media (max-width:1023px) {
+    gap: 15px;
+  }
+}
+
+.rightPanel {
+  flex: 1;
+  max-width: 403px;
+  padding: 18px 30px 30px;
+  & .items {
+    padding: 11px 0;
+
+    & .itemRow {
+      display: flex;
+      justify-content: space-between;
+      color: #4a4a4a;
+      text-align: right;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px;
+      letter-spacing: -0.305px;
+      margin-bottom: 4px;
+    }
+  }
+
+  & .subTotal {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid gainsboro;
+    padding: 11px 0 0;
+    color: #4a4a4a;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: -0.305px;
+    & b {
+      color: #383f52;
+      text-align: right;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: 32px; /* 133.333% */
+      letter-spacing: -0.75px;
+    }
+  }
+}
+
+.estimateTotal{
+  color: #4A4A4A;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px; /* 160% */
+  letter-spacing: -0.75px;
+  margin: 0;
+}
+
+.estimateText{
+  color: var(--Black-Shades-Resting, #8E8E8E);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 228.571% */
+  letter-spacing: -0.75px;
+  margin: 0;
+  padding: 0 0 14px;
+  border-bottom: 1px solid #8E8E8E;
+}
+
+.checkoutButton{
+  margin-top: 23px;
+  & button{
+    min-height: 51px;
+    border-radius: 100px;
+
+  }
+}
+
+.cardLeftItem {
+  border-radius: 15px;
+  background: var(--white, #fff);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  max-width: 845px;
+  width: 100%;
+  padding: 33px 56px;
+  @media (max-width:1266px) {
+    max-width: 645px;
+    width: 100%;
+    padding: 33px;
+  }
+  @media (max-width:1160px) {
+    max-width: 545px;
+    width: 100%;
+  }
+  @media (max-width:1023px) {
+    flex-direction: column;
+    max-width: 100%;
+    padding: 16px;
+  }
+}
+
+.cartCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 56px;
+  @media (max-width:1266px) {
+    gap: 25px;
+  }
+  @media (max-width:1023px) {
+    flex-direction: column;
+  }
+}
+
+.avatarMd{
+  @media (max-width:1023px) {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+.rightPanel {
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+  @media (max-width:1023px) {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.cartName {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 27px;
+}
+
+.ratings {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #4c5368;
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 15px; /* 266.667% */
+  text-decoration-line: underline;
+  @media (max-width:576px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.authorName {
+  color: #383f52;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px; /* 200% */
+}
+
+.disabledButton {
+  cursor: not-allowed;
+  opacity: 0.5; /* or any value to make it visually clear that the button is disabled */
+  pointer-events: none; /* this ensures that the button is not clickable */
+}

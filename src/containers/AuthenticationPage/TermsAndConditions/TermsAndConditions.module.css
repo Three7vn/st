@@ -1,0 +1,39 @@
+@import '../../../styles/customMediaQueries.css';
+
+.root {
+  composes: marketplaceModalBottomWrapperText from global;
+  padding-bottom: 6px;
+
+  @media (--viewportMedium) {
+    padding-bottom: 8px;
+  }
+  & label {
+    justify-content: center;
+  }
+}
+
+.finePrint {
+  composes: marketplaceModalHelperLink from global;
+  padding: 3px 0 5px 0;
+  text-align: left;
+}
+
+.privacyLink,
+.termsLink {
+  composes: marketplaceModalHelperLink from global;
+  color: var(--marketplaceColor);
+  text-decoration: underline;
+  color: #383f52;
+  font-family: Poppins;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: -0.2px;
+  text-decoration-line: underline;
+  &:hover {
+    color: var(--marketplaceColorDark);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

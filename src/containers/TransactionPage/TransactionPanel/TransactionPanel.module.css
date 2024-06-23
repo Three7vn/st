@@ -1,0 +1,847 @@
+@import '../../../styles/customMediaQueries.css';
+
+.root {
+  position: relative;
+  background: var(--Background, #f7f9fb);
+
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (--viewportLarge) {
+    flex-direction: row;
+    max-width: 1190px;
+    margin: 0 auto 57px auto;
+    padding: 0 36px;
+  }
+
+  @media (--viewportXLarge) {
+    max-width: 1190px;
+    padding: 0;
+  }
+}
+
+.reportUser {
+  color: var(--Main-Color, #383f52);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px; /* 114.286% */
+  letter-spacing: -0.2px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.txInfo {
+  margin-bottom: 36px;
+
+  @media (--viewportLarge) {
+    flex-basis: 693px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    margin-right: 0px;
+    margin-bottom: 0;
+    background-color: #fff;
+    padding: 0 65px 60px;
+  }
+}
+
+.genericError {
+  color: var(--colorFail);
+  margin: 24px 24px 0 24px;
+
+  @media (--viewportMedium) {
+    margin: 32px 24px 0 24px;
+  }
+
+  @media (--viewportLarge) {
+    margin: 32px 0 0 0;
+  }
+}
+
+/* DetailCardImage subcomponent */
+.detailCardImageWrapper {
+  /* Layout */
+  display: none;
+  width: 100%;
+  position: relative;
+  background-color: var(--colorGrey100);
+  /* Loading BG color */
+  border-radius: 15px 15px 0 0;
+  max-height: 305px;
+  overflow: hidden;
+  @media (--viewportLarge) {
+    display: block;
+  }
+}
+
+.rootForImage {
+  /* Layout - image will take space defined by aspect ratio wrapper */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+
+  @media (--viewportLarge) {
+    border-radius: 15px 15px 0 0;
+  }
+}
+.documentWrappers {
+  margin-top: 4px;
+  /* color: #3065a1;
+  width: 250px; */
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #edf5fa; */
+  word-break: break-word;
+  /* border: #3065a1 solid 2px; */
+  display: flex;
+
+  & svg {
+    margin-right: 6px;
+    max-height: 20px;
+  }
+}
+
+.documentWrapper {
+  color: var(--Black, #000);
+  margin-top: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  word-break: break-word;
+  width: 100%;
+  height: 48px;
+ border: 1px solid #383F52;
+  
+  border-radius: 100px;
+  display: flex;
+
+  & svg {
+    margin-right: 6px;
+    max-height: 20px;
+  }
+}
+
+.downloadBtnWrapper{
+  padding: 10px 48px;
+  
+}
+.avatarWrapper {
+  /* Position (over the listing image)*/
+  margin-left: 24px;
+  margin-top: -30px;
+
+  /* Rendering context to the same lavel as listing image */
+  position: relative;
+  /* Flexbox would give too much width by default. */
+  width: 60px;
+
+  @media (--viewportMedium) {
+    margin-top: -32px;
+    padding: 2px 0;
+  }
+
+  @media (--viewportLarge) {
+    margin-left: 48px;
+    width: unset;
+    padding: 2px 0;
+  }
+}
+
+/* Passed-in props for DetailCardImage subcomponent */
+.imageWrapperMobile {
+  position: relative;
+  background-color: var(--colorGrey100);
+  /* Loading BG color */
+
+  @media (--viewportLarge) {
+    display: none;
+  }
+}
+
+.avatarWrapperMobile {
+  composes: avatarWrapper;
+
+  @media (--viewportLarge) {
+    display: none;
+  }
+}
+
+.avatarWrapperDesktop {
+  composes: avatarWrapper;
+  display: none;
+
+  @media (--viewportLarge) {
+    display: block;
+  }
+}
+
+.avatarWrapperProviderDesktop {
+  display: none;
+
+  @media (--viewportLarge) {
+    display: block;
+    margin-top: 20px;
+  }
+}
+
+.avatarDesktop {
+  @media (--viewportLarge) {
+    display: flex;
+  }
+}
+
+/* PanelHeadings subcomponent */
+.headingOrder {
+  margin: 30px 24px 0 24px;
+
+  @media (--viewportMedium) {
+    max-width: 80%;
+    margin: 24px 24px 0 24px;
+    padding: 2px 0 6px 0;
+  }
+
+  @media (--viewportLarge) {
+    max-width: 100%;
+    margin: 57px 0 0 0;
+  }
+}
+
+.headingSale {
+  margin: 18px 24px 0 24px;
+  padding: 5px 0 1px 0;
+  border-bottom: 1px solid #e6e6e6;
+  @media (--viewportMedium) {
+    max-width: 80%;
+    margin: 24px 24px 0 24px;
+    padding: 1px 0 7px 0;
+  }
+
+  @media (--viewportLarge) {
+    max-width: 100%;
+    margin: 59px 0 0 0;
+    padding: 2px 0 6px 0;
+  }
+}
+
+.mainTitle {
+  color: var(--Main-Color, #383f52);
+  font-family: Poppins;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 123.077% */
+  letter-spacing: -1px;
+  display: block;
+  margin-bottom: 0;
+}
+
+.subTitle {
+  color: #4a4a4a;
+  font-family: 'Poppins';
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.348px;
+  /* border-bottom: 1px solid #E6E6E6; */
+  /* padding-bottom: 20px; */
+}
+.subTitleTwo {
+  color: #4a4a4a;
+  font-family: 'Poppins';
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.348px;
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 20px;
+}
+
+.listingTitleMobile {
+  margin: 30px 24px 0 24px;
+
+  @media (--viewportLarge) {
+    display: none;
+  }
+}
+
+.inquiryPrice {
+  composes: p from global;
+  font-weight: var(--fontWeightBold);
+}
+
+.transactionInfoMessage {
+  margin: 12px 24px 0 24px;
+  border-bottom: 1px solid #e6e6e6;
+  font-family: 'Poppins';
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.34823527932167053px;
+  padding-bottom: 20px;
+
+  @media (--viewportMedium) {
+    margin: 0 24px 0 24px;
+  }
+
+  @media (--viewportLarge) {
+    margin: 0;
+  }
+}
+
+.orderDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container for order details in mobile layout */
+.orderDetailsMobileSection {
+  margin-top: 48px;
+  order: 2;
+
+  @media (--viewportMedium) {
+    margin-top: 40px;
+    padding: 4px 0 4px 0;
+  }
+
+  @media (--viewportLarge) {
+    display: none;
+  }
+}
+
+.deliveryInfoSection {
+  order: 1;
+}
+
+/* "aside" section in desktop layout */
+.asideDesktop {
+  margin: 1px 0 0 0;
+
+  /**
+   * Aside is visible on mobile layout too, since it includes OrderPanel component.
+   * It might get rendered as a Modal in mobile layout.
+   */
+
+  @media (--viewportLarge) {
+    margin: 56px 0 0 0;
+    position: sticky;
+    top: 0px;
+  }
+}
+
+.stickySection {
+  @media (--viewportLarge) {
+    /* This is a hack to showcase how the component would look when the image isn't sticky */
+    width: 409px;
+    z-index: 1;
+    border-radius: 15px;
+    border: 1px solid #e6e6e6;
+    background: var(--white, #fff);
+    box-shadow: 0px 14px 24px 0px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    padding-bottom: 48px;
+  }
+}
+.listingTitle {
+  padding: 11px 48px 0;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: -0.75px;
+  color: #383f52;
+}
+.lisitngCondition {
+  padding: 0 48px 20px;
+  line-height: 32px;
+  letter-spacing: -0.75px;
+  font-family: 'Poppins';
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.3047058880329132px;
+}
+
+.detailCard {
+  @media (--viewportLarge) {
+  }
+}
+
+/* DetailCardHeadingsMaybe subcomponent */
+.detailCardHeadings {
+  display: none;
+
+  @media (--viewportLarge) {
+    display: block;
+    margin: 24px 48px 32px 48px;
+  }
+
+  & .itemRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.detailCardTitle {
+  margin-top: 0;
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
+  @media (--viewportLarge) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.detailCardSubtitle {
+  composes: h5 from global;
+
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @media (--viewportLarge) {
+    margin-top: 9px;
+    margin-bottom: 0;
+  }
+}
+
+/* AddressLinkMaybe subcomponent */
+.address {
+  composes: h5 from global;
+  color: var(--colorGrey700);
+  margin: 0;
+}
+
+.viewOnGoogleMapsWrapper {
+  white-space: nowrap;
+}
+
+.bookingLocationAddress,
+.pickupAddress {
+  composes: h5 from global;
+  margin: 0;
+  display: inline-block;
+
+  @media (--viewportMedium) {
+    padding: 3px 0 5px 0;
+  }
+}
+
+/* BreakdownMaybe subcomponent */
+.breakdownMaybe {
+  /* default "root" class for breakdown container */
+}
+
+.orderBreakdownTitle {
+  letter-spacing: 1px;
+  font-weight: var(--fontWeightMedium);
+  margin: 0 24px;
+
+  @media (--viewportMedium) {
+    margin: 0 48px;
+  }
+}
+
+.totalDivider {
+  /* dimensions */
+  height: 1px;
+  margin: 12px 24px 5px 24px;
+
+  border: none;
+  background-color: var(--colorGrey100);
+
+  @media (--viewportMedium) {
+    margin: 7px 48px 0 48px;
+  }
+}
+
+.breakdownContainer {
+  display: none;
+
+  @media (--viewportLarge) {
+    display: block;
+  }
+}
+
+.sectionHeading {
+  composes: p from global;
+  font-weight: var(--fontWeightBold);
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.shippingInfoContent {
+  padding: 0px 0 0px 13px;
+  margin-top: 12px;
+
+  @media (--viewportMedium) {
+    padding: 4px 0 4px 0px;
+    margin-top: 8px;
+  }
+}
+
+.bookingLocationContent,
+.pickupInfoContent {
+  composes: marketplaceSmallFontStyles from global;
+  padding: 5px 0 1px 0;
+  margin-top: 6px;
+
+  @media (--viewportMedium) {
+    padding: 1px 0 7px 0;
+    margin-top: 8px;
+  }
+}
+
+.feedContent {
+  padding: 0;
+  margin-top: 12px;
+
+  @media (--viewportMedium) {
+    margin-top: 8px;
+  }
+}
+
+.inquiryMessage {
+  /* Preserve newlines, but collapse other whitespace */
+  display: inline-block;
+  margin: 0;
+  padding: 8.5px 14px 8.5px 14px;
+  border-radius: 8px;
+  box-shadow: var(--boxShadow);
+  background-color: var(--colorWhite);
+
+  white-space: pre-line;
+
+  margin-top: 12px;
+  margin-bottom: 0;
+
+  @media (--viewportMedium) {
+    margin-top: 8px;
+    padding: 8px 14px 8px 14px;
+  }
+}
+
+.ownInquiryMessage {
+  composes: inquiryMessage;
+  background-color: var(--marketplaceColor);
+  color: var(--colorWhite);
+}
+
+.messageError {
+  color: var(--colorFail);
+  margin: 13px 0 22px 0;
+
+  @media (--viewportMedium) {
+    margin: 13px 0 23px 0;
+  }
+
+  @media (--viewportLarge) {
+    margin: 12px 0 23px 0;
+  }
+}
+
+/* Passed-in props for FeedSection subcomponent */
+.bookingLocationContainer,
+.deliveryInfoContainer,
+.feedContainer {
+  margin: 42px 24px 0 24px;
+
+  @media (--viewportMedium) {
+    padding: 7px 0 1px 0;
+    margin: 40px 24px 0 24px;
+  }
+
+  @media (--viewportLarge) {
+    margin: 40px 0 0 0;
+  }
+}
+
+.deliveryInfoContainer {
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 20px;
+}
+
+/* Prop to be passed to SendMessageForm component */
+.sendMessageForm {
+  position: relative;
+  margin: 46px 24px 0 24px;
+
+  @media (--viewportMedium) {
+    margin: 49px 24px 0 24px;
+    border-top: 0;
+  }
+
+  @media (--viewportLarge) {
+    margin: 48px 0 0 0;
+  }
+}
+
+.sendingMessageNotAllowed {
+  color: var(--colorGrey300);
+
+  position: relative;
+  margin: 46px 24px 0 24px;
+
+  @media (--viewportMedium) {
+    margin: 49px 24px 0 24px;
+    border-top: 0;
+  }
+
+  @media (--viewportLarge) {
+    margin: 47px 0 0 0;
+  }
+}
+
+/* SaleActionButtonsMaybe subcomponent */
+.actionButtons {
+  /* Position action button row above the footer */
+  z-index: 9;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 18px 24px 18px 24px;
+
+  /* Contain repainting to this component only */
+  /* 3D painting container helps scrolling */
+  transform: translate3d(0, 0, 0);
+
+  box-shadow: var(--boxShadowTop);
+  background-color: white;
+
+  @media (--viewportLarge) {
+    z-index: unset;
+    position: static;
+    box-shadow: none;
+    width: auto;
+    margin: 0 48px 0 48px;
+    padding: 0;
+  }
+}
+
+.actionButtonWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 19px;
+  @media (--viewportLarge) {
+    flex-direction: column;
+    margin-top: 30px;
+  }
+
+  & button:first-child {
+    margin: 0 12px 0 0;
+    border-radius: 100px;
+    border: 1px solid #383f52;
+    background-color: #fff;
+    color: var(--Main-Color, #383f52);
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    @media (--viewportLarge) {
+      margin: 1px 0 0 0;
+
+      /* Switch order in desktop layout with accept button being on the top */
+      order: 1;
+    }
+  }
+}
+
+.actionError {
+  composes: h5 from global;
+  color: var(--colorFail);
+  margin: 0 0 11px 0;
+
+  @media (--viewportMedium) {
+    margin: 0 0 10px 0;
+    padding: 1px 0 7px 0;
+  }
+
+  @media (--viewportLarge) {
+    margin: 0;
+  }
+}
+
+.actionErrors {
+  width: 100%;
+  text-align: center;
+}
+
+/* Container for SaleActionButtonsMaybe subcomponent */
+.mobileActionButtons {
+  display: block;
+
+  @media (--viewportLarge) {
+    display: none;
+  }
+}
+
+.mobileActionButtonSpacer {
+  width: 100%;
+  height: 120px;
+
+  @media (--viewportLarge) {
+    display: none;
+  }
+}
+
+.desktopActionButtons {
+  display: none;
+
+  @media (--viewportLarge) {
+    display: block;
+    margin-bottom: 0px;
+  }
+}
+
+.diminishedActionButtonRoot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 18px 24px 0 24px;
+
+  @media (--viewportLarge) {
+    align-items: center;
+    padding: 0 48px;
+  }
+}
+
+/* e.g. dispute "link" */
+.diminishedActionButton {
+  composes: marketplaceTinyFontStyles from global;
+
+  width: 100%;
+  color: #808080;
+  padding: 1px 0 5px 0;
+  margin: 0;
+  border-radius: 100px;
+  border: 1px solid #383f52;
+  @media (--viewportMedium) {
+    margin: 0;
+  }
+
+  @media (--viewportLarge) {
+    padding: 15px 35px;
+    margin-top: 16px;
+  }
+}
+
+.offerPriceWrapper {
+  margin: 0 48px 4px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e6e6e6;
+  border-top: 1px solid #e6e6e6;
+  padding-top: 15px;
+}
+
+.OfferedPrice {
+  color: #383f52;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 100% */
+  margin-top: 11px;
+  display: block;
+}
+
+.submitNewOfferPrice {
+  margin: 0 48px 0px;
+  border-top: 1px solid #e6e6e6;
+  padding-top: 16px;
+  margin-top: 8px;
+}
+
+.Submitbutton {
+  border-radius: 100px;
+  border: 1px solid #383f52;
+  color: var(--Main-Color, #383f52);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 30px;
+  margin-top: 22px;
+  cursor: pointer;
+}
+
+.primaryBtn {
+  border-radius: 100px;
+  background: #383f52;
+  &:hover {
+    background: #383f52;
+  }
+}
+.bookingInputWrapper {
+  padding: 0 40px 18px;
+
+  & .bookingInput {
+    margin-top: 18px;
+  }
+
+  & .Submitbutton {
+  }
+}
+
+.reportUserTitle {
+  font-family: Poppins;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 33px;
+  text-align: left;
+  margin: -30px 0 24px;
+  border-bottom: 1px solid #bebebe;
+  padding-bottom: 20px;
+  color: #000000;
+}
+
+.label{
+  text-align: left;
+}
+
+.ReportSubmitbutton{
+  color: #fff;
+  border-radius: 50px;
+  margin-top: 20px;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+}
+
+.reportText{
+  margin-top: 20px;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: -0.20000000298023224px;
+  text-align: center;
+  color: #4C5368;
+}

@@ -1,0 +1,488 @@
+@import '../../styles/customMediaQueries.css';
+
+.mobileTopbar {
+  /* Size */
+  width: 100%;
+  height: var(--topbarHeight);
+
+  /* Layout for child components */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  /* fill */
+  background-color: var(--colorWhite);
+
+  /* shadows */
+  box-shadow: none;
+
+  @media (--viewportMedium) {
+    height: var(--topbarHeightDesktop);
+  }
+
+  @media (--viewportLarge) {
+    display: none;
+  }
+}
+
+.desktopTopbar,
+.mobileTopbar {
+  box-shadow: none;
+
+  @media (--viewportLarge) {
+    box-shadow: var(--boxShadowLight);
+  }
+}
+
+.navigation {
+  /* Layout */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 29px 24px 0 24px;
+
+  border-top-width: 1px;
+  border-top-color: var(--colorGrey100);
+  border-top-style: solid;
+  background-color: var(--colorWhite);
+  box-shadow: var(--boxShadow);
+
+  @media (--viewportMedium) {
+    padding: 24px 24px 0 24px;
+  }
+
+  @media (--viewportLarge) {
+    flex-wrap: unset;
+    padding: 40px 0 82px 36px;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+  }
+  @media (--viewportLargeWithPaddings) {
+    padding: 40px 0 82px calc((100% - 1056px) / 2);
+  }
+}
+
+.title {
+  align-self: center;
+  padding: 0px 0 8px 0;
+
+  /* Layout */
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @media (--viewportMedium) {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  @media (--viewportLarge) {
+    padding: 5px 0 3px 0;
+    align-self: unset;
+  }
+}
+
+.tabs {
+  padding-top: 2px;
+
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+
+  @media (--viewportMedium) {
+    padding-top: 12px;
+    padding-top: 20px;
+  }
+
+  @media (--viewportLarge) {
+    padding-top: 24px;
+    flex-direction: column;
+  }
+}
+
+.tab {
+  margin-left: 16px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  @media (--viewportLarge) {
+    margin-left: 0;
+  }
+}
+
+.error {
+  color: var(--colorFail);
+  margin: 23px 24px 24px 24px;
+
+  @media (--viewportLarge) {
+    margin-top: 18px;
+  }
+}
+
+.noResults {
+  margin-left: 24px;
+  margin-right: 24px;
+  margin-top: 1px;
+
+  @media (--viewportLarge) {
+    margin-top: 25px;
+  }
+}
+
+.itemList {
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes loadingSpinnerFadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.listItemsLoading {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  opacity: 0;
+
+  /* animation shorthand property doesn't work with local scope of CSS Modules */
+  animation-duration: 1s;
+  animation-name: loadingSpinnerFadeIn;
+  animation-fill-mode: forwards;
+}
+
+.listItem {
+  /* Layout */
+  margin-bottom: 10px;
+  padding-bottom: 12px;
+
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: var(--colorGrey100);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  @media (--viewportLarge) {
+    margin-bottom: 16px;
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.itemDetails {
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: -0.20000000298023224px;
+  text-align: left;
+}
+
+.itemAvatar {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+
+  @media (--viewportMedium) {
+    display: block;
+    align-items: unset;
+  }
+
+  @media (--viewportLarge) {
+    margin-top: 0px;
+    margin-right: 13px;
+  }
+  & a {
+    width: 53px;
+    height: 53px;
+    /* border-radius: 0; */
+    /* background-image: none; */
+    & div {
+      width: 53px;
+      height: 53px;
+    }
+  }
+}
+
+.heading {
+  padding-bottom: 23px;
+  border-bottom: 1px solid #bebebe;
+  margin-bottom: 31px;
+  & h4 {
+    font-family: Poppins;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: -1px;
+    text-align: left;
+    margin: 0;
+  }
+}
+
+.itemLink {
+  flex: 1;
+  /* position: relative; */
+  /* Layout */
+  /* display: inline-grid;
+  grid-template-columns: 22px auto;
+  grid-template-areas:
+    'dot name    state'
+    '... item    state'
+    '... details state'; */
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0 0px;
+  gap: 4px 0;
+
+  /* Remove text underline from this link */
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:hover .itemUsername {
+    /* Hightlight the username when the whole item is hovered */
+    color: var(--marketplaceColor);
+  }
+}
+
+.rowNotificationDot {
+  grid-area: dot;
+  justify-self: center;
+  align-self: flex-start;
+  /* margin-top: 8px; */
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  /* left: -23px; */
+  top: 0; 
+
+  z-index: 2;
+  @media (--viewportLarge) {
+    margin-top: 3px;
+    margin-left: 5px;
+  }
+
+  @media (--viewportLarge) {
+    justify-self: flex-start;
+    width: 8px;
+    height: 8px;
+  }
+}
+
+.notificationDot {
+  color: var(--colorWhite);
+
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--colorFail);
+}
+
+.itemUsername {
+  grid-area: name;
+
+  /* Font */
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.3047058880329132px;
+  
+  text-align: left;
+
+  margin-top: 0;
+  margin-bottom: 0;
+  position: relative;
+
+  @media (--viewportMedium) {
+    line-height: 16px;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+.itemTitle {
+  composes: marketplaceTinyFontStyles from global;
+  grid-area: item;
+  color: var(--colorGrey700);
+
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.itemDetails {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: -0.20000000298023224px;
+  text-align: left;
+  
+  grid-area: details;
+  color: var(--colorGrey700);
+
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-top: 2px;
+}
+
+.itemState {
+  grid-area: state;
+
+  /* Font */
+  composes: marketplaceTinyFontStyles from global;
+  line-height: 18px;
+  font-weight: var(--fontWeightMedium);
+  letter-spacing: normal;
+
+  justify-self: flex-end;
+  text-align: end;
+
+  margin-top: 6px;
+  margin-bottom: 0px;
+
+  @media (--viewportMedium) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.pagination {
+  margin: auto 24px 0 24px;
+}
+
+/* Transaction status affects to certain font colors and weights */
+
+.stateName {
+  /* This class is empty on purpose, it is used below for banned users */
+  font-family: Inter;
+font-size: 14px;
+font-weight: 700 !important;
+line-height: 20px;
+letter-spacing: -0.3047058880329132px;
+text-align: right;
+
+}
+
+.date{
+  font-family: Inter;
+font-size: 12px;
+font-weight: 500;
+line-height: 16px;
+letter-spacing: -0.20000000298023224px;
+text-align: right;
+display: block;
+margin-top: 2px;
+}
+
+.stateActionNeeded {
+  font-weight: var(--fontWeightMedium);
+  color: var(--colorAttention);
+}
+
+.stateNoActionNeeded {
+  color: var(--colorGrey700);
+}
+
+.stateConcluded {
+  color: var(--colorGrey300);
+}
+
+.bookingActionNeeded {
+  color: var(--colorGrey700);
+  margin-top: 4px;
+
+  @media (--viewportMedium) {
+    margin-top: 9px;
+  }
+}
+
+.bookingNoActionNeeded {
+  color: var(--colorGrey300);
+}
+
+.lastTransitionedAtEmphasized {
+  color: var(--colorGrey700);
+  font-weight: var(--fontWeightMedium);
+}
+
+.lastTransitionedAtNotEmphasized {
+  color: var(--colorGrey300);
+}
+
+.bannedUserLink {
+  & .itemUsername,
+  &:hover .itemUsername,
+  & .stateName {
+    color: var(--colorGrey300);
+  }
+}
+
+.messageInfoWrapper{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pending{
+  color: #FFAA00;
+}
+.new{
+  color: #FFAA00;
+}
+
+.expired{
+  color: #B2B2B2;
+}
+
+.notShipped{
+  color: #C0392B;
+
+}
+
+.shipped{
+  color: #2ECC71;
+}
+
+.delivered{
+  display: flex;
+  gap: 5px;
+  font-family: Poppins;
+font-size: 14px;
+font-weight: 700;
+line-height: 20px;
+letter-spacing: -0.3047058880329132px;
+text-align: right;
+color: #C0392B;
+align-items: center;
+  &:before{
+    content: "";
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='15' viewBox='0 0 16 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.6993 7.37875L13.8243 3.00375C13.7762 2.8913 13.6961 2.79546 13.594 2.72812C13.4919 2.66079 13.3723 2.62493 13.25 2.625H11.375V1.375C11.375 1.20924 11.3091 1.05027 11.1919 0.933058C11.0747 0.815848 10.9157 0.75 10.75 0.75H0.749965V2H10.125V9.8475C9.84017 10.0129 9.59093 10.233 9.39163 10.4952C9.19232 10.7573 9.04689 11.0563 8.96372 11.375H5.03621C4.88409 10.7858 4.52232 10.2724 4.01871 9.93087C3.5151 9.58937 2.90422 9.44325 2.30059 9.51993C1.69696 9.5966 1.14201 9.89079 0.739764 10.3474C0.337521 10.8039 0.115601 11.3915 0.115601 12C0.115601 12.6085 0.337521 13.1961 0.739764 13.6526C1.14201 14.1092 1.69696 14.4034 2.30059 14.4801C2.90422 14.5567 3.5151 14.4106 4.01871 14.0691C4.52232 13.7276 4.88409 13.2142 5.03621 12.625H8.96372C9.09967 13.1614 9.41061 13.6371 9.84733 13.977C10.284 14.3168 10.8216 14.5013 11.375 14.5013C11.9283 14.5013 12.4659 14.3168 12.9026 13.977C13.3393 13.6371 13.6503 13.1614 13.7862 12.625H15.125C15.2907 12.625 15.4497 12.5592 15.5669 12.4419C15.6841 12.3247 15.75 12.1658 15.75 12V7.625C15.75 7.54033 15.7328 7.45654 15.6993 7.37875ZM2.62497 13.25C2.37774 13.25 2.13606 13.1767 1.9305 13.0393C1.72494 12.902 1.56473 12.7068 1.47012 12.4784C1.37551 12.2499 1.35075 11.9986 1.39898 11.7561C1.44721 11.5137 1.56627 11.2909 1.74108 11.1161C1.9159 10.9413 2.13863 10.8222 2.3811 10.774C2.62358 10.7258 2.87491 10.7505 3.10332 10.8451C3.33173 10.9398 3.52695 11.1 3.6643 11.3055C3.80165 11.5111 3.87497 11.7528 3.87497 12C3.87463 12.3314 3.74283 12.6492 3.50848 12.8835C3.27413 13.1179 2.95638 13.2497 2.62497 13.25ZM11.375 3.875H12.8375L14.1775 7H11.375V3.875ZM11.375 13.25C11.1277 13.25 10.8861 13.1767 10.6805 13.0393C10.4749 12.902 10.3147 12.7068 10.2201 12.4784C10.1255 12.2499 10.1008 11.9986 10.149 11.7561C10.1972 11.5137 10.3163 11.2909 10.4911 11.1161C10.6659 10.9413 10.8886 10.8222 11.1311 10.774C11.3736 10.7258 11.6249 10.7505 11.8533 10.8451C12.0817 10.9398 12.2769 11.1 12.4143 11.3055C12.5517 11.5111 12.625 11.7528 12.625 12C12.6246 12.3314 12.4928 12.6492 12.2585 12.8835C12.0241 13.1179 11.7064 13.2497 11.375 13.25ZM14.5 11.375H13.7862C13.6485 10.8396 13.3371 10.3651 12.9007 10.0258C12.4644 9.68646 11.9277 9.50154 11.375 9.5V8.25H14.5V11.375Z' fill='%23C0392B'/%3E%3C/svg%3E%0A");
+    width: 15.63px;
+height: 13.75px;
+display: flex;
+  }
+}

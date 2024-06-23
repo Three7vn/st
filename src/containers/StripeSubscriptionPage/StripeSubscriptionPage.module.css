@@ -1,0 +1,207 @@
+.content {
+  background-image: url('../../assets/Rectangle.png');
+  padding: 154px 20px;
+  background-size: cover;
+  position: relative;
+  &:after {
+    position: absolute;
+    content: '';
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(-45deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+  }
+}
+
+.cardWrapper {
+  display: flex;
+  gap: 45px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+  & * {
+    color: #fff;
+  }
+}
+
+.starterCard {
+  border-radius: 15px;
+  border: 1px solid var(--line, #bebebe);
+  background: var(--Darker, #0e1319);
+  box-shadow: 0px 12px 14px 0px rgba(0, 0, 0, 0.12);
+  padding: 35px 24px;
+  max-width: 352px;
+  width: 100%;
+}
+
+.memberCard {
+  border-radius: 15px;
+  border: 1px solid var(--Accent, #f0b90b);
+  background: linear-gradient(168deg, #f0b90b -20.49%, rgba(14, 16, 25, 1) 36.88%);
+  box-shadow: 0px 12px 14px 0px rgba(0, 0, 0, 0.12);
+  padding: 35px 24px;
+  max-width: 347px;
+  width: 100%;
+  position: relative;
+}
+
+.recommendedText {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -23px;
+  background-color: #000;
+  border: 1px solid #f0b90b;
+  padding: 5px 27px;
+  border-radius: 50px;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0px;
+  text-align: center;
+  width: max-content;
+  margin: 0 auto;
+
+  & span{
+    color: #F0B90B;
+  }
+}
+
+.businessCard {
+  border-radius: 15px;
+  border: 1px solid var(--line, #bebebe);
+  background: var(--Darker, #0e1319);
+  box-shadow: 0px 12px 14px 0px rgba(0, 0, 0, 0.12);
+  padding: 35px 24px;
+  max-width: 347px;
+  width: 100%;
+}
+
+.cardTitle {
+  color: var(--white, #fff);
+  font-family: Poppins;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px; /* 93.333% */
+  letter-spacing: -1.5px;
+  margin: 0 0 15px;
+  padding: 0;
+}
+
+.cardFee {
+  & span {
+    color: var(--Accent, #f0b90b);
+    font-family: Poppins;
+    font-size: 33px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px; /* 84.848% */
+  }
+  margin: 0 0 25px;
+  padding: 0;
+}
+
+.buttonWhiteRound {
+  display: flex;
+  height: 42px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 100px;
+  background: var(--white, #fff);
+  min-height: 42px;
+  margin-bottom: 25px;
+  & span {
+    color: var(--Darker, #0e1319);
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  &:hover {
+    background: var(--white, #fff);
+  }
+}
+
+.planIncludes {
+  padding: 0;
+  margin: 0 0 8px;
+  & span {
+    color: var(--white, #fff);
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+  }
+}
+
+.planInfo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  & span {
+    color: var(--white, #fff);
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px; /* 185.714% */
+  }
+  & svg {
+    fill: transparent;
+  }
+}
+
+.selectBorder {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #f0b90b;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selectBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.verifyEmail {
+  background: var(--Accent, #f0b90b);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  & span {
+    color: #000;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  & b {
+    cursor: pointer;
+    & span {
+      font-weight: 700 !important;
+    }
+  }
+}

@@ -1,0 +1,54 @@
+.root {
+  position: relative;
+  display: inline-block;
+}
+
+.popup {
+  /* By default hide the content */
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+
+  /* Position */
+  position: absolute;
+  z-index: var(--zIndexPopup);
+
+  /* Layout */
+  min-width: 300px;
+  margin-top: 7px;
+  background-color: var(--colorWhite);
+
+  /* Borders */
+  border-top: 1px solid var(--colorGrey100);
+  box-shadow: var(--boxShadowPopup);
+  border-radius: var(--borderRadiusMedium);
+  transition: var(--transitionStyleButton);
+}
+
+.popupSize {
+  padding: 15px 30px 17px 30px;
+  max-height: 400px;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+    background: #ddd;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #383F52;
+    border-radius: 6px;
+    outline: 1px solid #fff;
+  }
+}
+
+.isOpen {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}

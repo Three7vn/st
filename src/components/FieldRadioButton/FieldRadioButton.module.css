@@ -1,0 +1,131 @@
+.root {
+  position: relative;
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+
+  /* Display the "check" when checked */
+  &:checked + label .checked {
+    display: inline;
+  }
+
+  /* Highlight the borders if the checkbox is hovered, focused or checked */
+  &:hover + label .notChecked,
+  &:hover + label .required,
+  &:focus + label .notChecked,
+  &:focus + label .required,
+  &:checked + label .notChecked,
+  &:checked + label .required {
+    stroke: #141617;
+  }
+  & + label .notChecked2{
+    stroke: #fff;
+    fill: #fff;
+  }
+  /* Highlight the borders if the checkbox is hovered, focused or checked */
+  &:hover + label .notChecked2,
+  &:hover + label .required2,
+  &:focus + label .notChecked2,
+  &:focus + label .required2,
+  &:checked + label .notChecked2,
+  &:checked + label .required2 {
+    stroke: #141617;
+    fill: #141617;
+  }
+
+  /* Hightlight the text on checked, hover and focus */
+  &:focus + label .text,
+  &:hover + label .text,
+  &:checked + label .text {
+    color: var(--matterColor);
+  }
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  padding-top: 6px;
+}
+
+.successIcon{
+ & .input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  
+    /* Display the "check" when checked */
+    &:checked + label .checked {
+      display: inline;
+    }
+  
+    /* Highlight the borders if the checkbox is hovered, focused or checked */
+    &:hover + label .notChecked,
+    &:hover + label .required,
+    &:focus + label .notChecked,
+    &:focus + label .required,
+    &:checked + label .notChecked,
+    &:checked + label .required {
+      stroke: var(--colorSuccess);
+    }
+    & + label .notChecked2{
+      stroke: #fff;
+      fill: #fff;
+    }
+    /* Highlight the borders if the checkbox is hovered, focused or checked */
+    &:hover + label .notChecked2,
+    &:hover + label .required2,
+    &:focus + label .notChecked2,
+    &:focus + label .required2,
+    &:checked + label .notChecked2,
+    &:checked + label .required2 {
+      stroke:  var(--colorSuccess) !important;
+      fill:  var(--colorSuccess) !important;
+    }
+  }
+}
+
+.radioButtonWrapper {
+  /* This should follow line-height */
+  height: 32px;
+  margin-top: -2px;
+  margin-right: 12px;
+  align-self: baseline;
+
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checked {
+  display: none;
+  stroke: var(--marketplaceColor);
+  fill: var(--marketplaceColor);
+}
+
+.notChecked {
+  /* stroke: var(--matterColorAnti); */
+  &:hover {
+    stroke: pink;
+  }
+}
+
+.required {
+  stroke: var(--attentionColor);
+  &:hover {
+    stroke: pink;
+  }
+}
+
+.text {
+  font-size: 18px;
+  color: var(--matterColor);
+  margin-top: -1px;
+  margin-bottom: 1px;
+  cursor: pointer;
+  font-weight: 500;
+}

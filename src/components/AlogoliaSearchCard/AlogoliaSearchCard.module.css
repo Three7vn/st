@@ -1,0 +1,297 @@
+@import '../../styles/customMediaQueries.css';
+
+.link {
+  & .imageWrapper {
+    height: 232px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ddd;
+    position: relative;
+    @media (--viewportMedium) {
+      height: 204px;
+    }
+    & .onproduct {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      margin: 0;
+      padding: 4px 10px;
+      font-size: 16px;
+      color: #fff;
+      background:  #b06b5d;
+      border-radius: 45px;
+    }
+  }
+}
+
+.openListingButton {
+  background-color:#dfeafd;
+  height: 41px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:#4472b7;
+  font-family: Poppins;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px; /* 123.077% */
+  letter-spacing: -0.2px;
+  /* margin-top + n * line-height + margin-bottom => x * 6px */
+  margin-top: 10px;
+  margin-bottom: 8px;
+
+  @media (--viewportMedium) {
+    /* margin-top + n * line-height + margin-bottom => x * 8px */
+    margin-top: 10px;
+    margin-bottom: 14px;
+  }
+}
+
+.category {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  padding: 0 15px 0px 15px;
+  height: 40px;
+  overflow: hidden;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  @media (max-width:767px) {
+    display: none;
+  }
+  & > span {
+    border-radius: 8px;
+    background: #dfeafd;
+    color: #4472b7;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px; /* 266.667% */
+    padding: 0 12px;
+  }
+}
+
+.root {
+  position: relative;
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cardFooter {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem .75rem .5rem;
+  border-top: 1px solid #E6E6E6;
+  padding: 12px;
+  @media (--viewportMedium) {
+  }
+  @media (max-width:767px) {
+    border: 0;
+    margin-top: 5px;
+    padding-top: 0px;
+   }
+}
+
+.linkbuyNow{
+  display: flex;
+width: 103px !important;
+height: 32px;
+justify-content: center;
+align-items: center;
+flex-shrink: 0;
+background-color: #000;
+color: #FFF;
+text-align: center;
+font-family: Poppins;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+border-radius: 45px;
+@media (max-width:767px) {
+  height: 23px;
+  font-size: 12px;
+  width: 82px;
+}
+&:hover{
+  text-decoration: none;
+}
+}
+
+.emptySpace{
+  flex: 1;
+}
+
+.likeIcon {
+  border-radius: 9999px;
+  /* background: var(--Sand---Primary, #efe4d3); */
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  cursor: pointer;
+  left: 10px;
+}
+
+.priceWrapper {
+  & p {
+    color: var(--Darker, #0E1319);
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 111.111% */
+    margin: 0;
+    @media (--viewportLarge) {
+    
+    }
+  }
+  & span {
+    color: var(--Black, #000);
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+  }
+}
+
+.bagButton {
+  /* width: 73.09px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  background: var(--Sand---Primary, #efe4d3);
+  color: var(--Black, #000);
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  height: 26px;
+  @media (--viewportLarge) {
+    height: 33px;
+  }
+  & > span {
+    padding: 2px 9.7px 2px 10px;
+    @media (--viewportLarge) {
+      padding: 4px 9.7px 4px 10px;
+    }
+    cursor: pointer;
+    gap: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.title {
+  color: var(--Darker, #0E1319);
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px; /* 177.778% */
+  letter-spacing: -0.75px;
+  margin: 0;
+  padding: .5rem .75rem;
+  @media (--viewportMedium) {
+    padding: 9px 12px;
+  }
+  @media (max-width:767px) {
+    font-size: 13px;
+    line-height: 32px;
+  }
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 15px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid;
+  border-color: #fff #fff;
+  animation: l1 1s infinite;
+}
+@keyframes l1 {to{transform: rotate(.5turn)}}
+
+
+.modalRemove{
+  & > div{
+    & > div{
+      flex-basis: 448px !important;
+      & > button{
+        display: none !important; 
+      }
+    }
+  }
+}
+
+.deleteIcon{
+  height: 72px;
+  width: 72px;
+  fill: #000;
+}
+
+.modalContent{
+  text-align: center;
+  
+  & .modalTitle{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin: 0;
+    line-height: 1.75rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  & .modalText{
+    font-size: .875rem;
+    line-height: 1.25rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  & .buttonGroups{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+  & .cancelBtn{
+    width: 8rem;
+    min-height: 40px;
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000;
+    border-radius: 50px;
+    font-weight: 400;
+  }
+  & .removeBtn{
+    width: 8rem;
+    min-height: 40px;
+    border-radius: 50px;
+    font-weight: 400;
+  }
+}
+
+.desktopText{
+  @media (max-width:767px) {
+    display: none;
+  }
+}

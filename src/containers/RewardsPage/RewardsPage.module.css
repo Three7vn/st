@@ -1,0 +1,484 @@
+/* RewardsPage.module.css */
+.rewardsPage {
+  max-width: 1239px;
+  margin: 0px auto;
+  padding: 0;
+  padding: 50px 167px;
+  background-color: #fff;
+  width: 100%;
+  @media (max-width: 767px) {
+    padding: 50px 22px;
+  }
+}
+
+.rewardsPageHeader {
+  font-family: Poppins;
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 66px;
+  text-align: center;
+  margin: 0 0 64px;
+  @media (max-width: 576px) {
+    font-size: 32px;
+    line-height: 44px;
+    margin: 0 0 34px;
+  }
+}
+
+.rewardsPageBalance {
+  box-shadow: 0px 4px 4px 0px #00000040 inset;
+  background: var(--Main-Color, #383f52);
+  flex: 1;
+  border-radius: 5px;
+  padding: 14px 14px 26px;
+  text-align: center;
+  & h5 {
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    text-align: center;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+  & h4 {
+    font-family: Poppins;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 29px;
+    text-align: center;
+    color: #ffffff;
+    margin: 30px 0;
+    padding: 0;
+
+    & span {
+      font-family: Poppins;
+      font-size: 33px;
+      font-weight: 600;
+      line-height: 29px;
+      text-align: center;
+      color: var(--Accent, #f0b90b);
+    }
+  }
+  & h6 {
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+    color: #ffffff;
+    text-decoration: underline;
+    text-transform: capitalize;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+  & a {
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+    color: #ffffff;
+    text-decoration: underline;
+    text-transform: capitalize;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+}
+
+.balanceCards {
+  display: flex;
+  gap: 19px;
+  @media (max-width: 576px) {
+    flex-direction: column;
+  }
+}
+
+.rewardsPagePointsOnHold {
+  font-size: 0.8em;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+.rewardsPageButtons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.rewardsPageButton {
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #eee; /* Optional light background */
+  color: #333; /* Optional text color */
+}
+
+.rewardsPageVouchers {
+  /* display: flex;
+  flex-wrap: wrap;
+  gap: 56px;
+  width: 100%;
+  justify-content: space-between;
+  padding-right: 50px;
+  @media (max-width: 576px) {
+    padding-right: 0px;
+    flex-direction: column;
+    gap: 24px;
+  } */
+  position: relative;
+  & .sliderButtons {
+    & .previous {
+      position: absolute;
+      top: 40%;
+      left: -30px;
+      transform: rotate(180deg);
+      cursor: pointer;
+      width: 43px;
+      height: 50px;
+      background-image: url(data:image/svg+xml,%3Csvg width=%2726%27 height=%2745%27 viewBox=%270 0 26 45%27 fill=%27none%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath fill-rule=%27evenodd%27 clip-rule=%27evenodd%27 d=%27M24.7205 19.8006C25.3496 20.4216 25.7062 21.267 25.7121 22.151C25.7179 23.0349 25.3724 23.885 24.7516 24.5143L6.01784 43.4972C5.71242 43.8176 5.34625 44.074 4.94069 44.2514C4.53513 44.4288 4.0983 44.5237 3.65569 44.5304C3.21307 44.5372 2.77355 44.4558 2.36275 44.2908C1.95195 44.1259 1.57811 43.8809 1.26304 43.5699C0.947968 43.259 0.697977 42.8884 0.527653 42.4798C0.35733 42.0712 0.270085 41.6328 0.271007 41.1902C0.27193 40.7475 0.361004 40.3095 0.533029 39.9016C0.705055 39.4937 0.956588 39.1242 1.27295 38.8146L17.6654 22.2041L1.05497 5.81166C0.443575 5.18694 0.102002 4.34708 0.103824 3.47297C0.105647 2.59885 0.450718 1.76042 1.06472 1.13826C1.67872 0.516091 2.51252 0.159972 3.38653 0.146604C4.26055 0.133236 5.10485 0.463684 5.73759 1.06678L24.7205 19.8006Z%27 fill=%27%230E1319%27/%3E%3C/svg%3E%0A);
+      background-position: right;
+    }
+    & .next {
+      background-position: right;
+      position: absolute;
+      top: 40%;
+      right: 0;
+      cursor: pointer;
+      width: 43px;
+      height: 50px;
+      background-image: url(data:image/svg+xml,%3Csvg width=%2726%27 height=%2745%27 viewBox=%270 0 26 45%27 fill=%27none%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath fill-rule=%27evenodd%27 clip-rule=%27evenodd%27 d=%27M24.7205 19.8006C25.3496 20.4216 25.7062 21.267 25.7121 22.151C25.7179 23.0349 25.3724 23.885 24.7516 24.5143L6.01784 43.4972C5.71242 43.8176 5.34625 44.074 4.94069 44.2514C4.53513 44.4288 4.0983 44.5237 3.65569 44.5304C3.21307 44.5372 2.77355 44.4558 2.36275 44.2908C1.95195 44.1259 1.57811 43.8809 1.26304 43.5699C0.947968 43.259 0.697977 42.8884 0.527653 42.4798C0.35733 42.0712 0.270085 41.6328 0.271007 41.1902C0.27193 40.7475 0.361004 40.3095 0.533029 39.9016C0.705055 39.4937 0.956588 39.1242 1.27295 38.8146L17.6654 22.2041L1.05497 5.81166C0.443575 5.18694 0.102002 4.34708 0.103824 3.47297C0.105647 2.59885 0.450718 1.76042 1.06472 1.13826C1.67872 0.516091 2.51252 0.159972 3.38653 0.146604C4.26055 0.133236 5.10485 0.463684 5.73759 1.06678L24.7205 19.8006Z%27 fill=%27%230E1319%27/%3E%3C/svg%3E%0A);
+    }
+  }
+}
+
+.rewardsPageVoucher {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 48%;
+  background-color: #fff; /* Optional background color */
+}
+
+.rewardsPageVoucher h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.sectionTItle {
+  font-family: Poppins;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: -1px;
+  text-align: left;
+  color: #4a4a4a;
+  margin: 38px 0 29px 0;
+}
+
+.rewardsPageVoucher p {
+  font-size: 0.8em;
+  color: #666;
+  margin-bottom: 0;
+}
+
+.layoutMain {
+  background: #f7f9fb;
+}
+
+.voucherSliderWrapper {
+  max-width: 100%;
+  width: 100%;
+  & :global(.slick-track) {
+    display: block !important;
+    margin-bottom: 30px;
+  }
+  & :global(.slick-arrow) {
+    display: block !important;
+  }
+  & :global(.slick-next) {
+    right: -22px !important;
+    @media (max-width: 576px) {
+      right: 0 !important;
+    }
+  }
+}
+
+.voucherCard {
+  width: calc(50% - 28px);
+  @media (max-width: 576px) {
+    width: calc(100% - 0px);
+  }
+  & img {
+    width: 100%;
+  }
+}
+
+.voucherTitle {
+  margin-top: 14px;
+  & h4 {
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 32px;
+    letter-spacing: -1px;
+    text-align: left;
+    color: #000000;
+    margin: 0;
+  }
+  & b {
+    font-weight: 500;
+  }
+}
+
+.wheelContainer {
+  margin-top: 82px;
+  padding-top: 72px;
+  border-top: 1px solid #6a6a6a;
+}
+
+.wheelCircle {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.modalTitle {
+  font-family: Poppins;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 33px;
+  text-align: left;
+  color: #000000;
+  margin: -6px 0 30px 0;
+  border-bottom: 1px solid var(--line, #bebebe);
+  padding-bottom: 20px;
+}
+
+.modalText {
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+  margin: 28px 0 22px;
+}
+
+.subText {
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: -0.20000000298023224px;
+  text-align: center;
+}
+
+.getPoints {
+  width: 215px;
+  height: 54px;
+  border-radius: 100px;
+  opacity: 0px;
+  margin: 40px auto 0;
+}
+
+.spinResultModal {
+  & > div {
+    & > div {
+      @media (min-width: 768px) {
+        padding: 24px 44px 44px !important;
+        box-shadow: 0px 4px 4px 0px #00000040 !important;
+        border-radius: 25px !important;
+      }
+      & h3 {
+        font-family: Poppins;
+      }
+      & h4 {
+        font-family: Poppins;
+      }
+    }
+  }
+  @media (max-width:767px) {
+    & img{
+      width: 100%;
+    }
+  }
+}
+
+.priceTitle {
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: left;
+  margin: 20px 0 23px;
+}
+
+.buttonBuy {
+  max-width: 215px;
+  margin: 40px auto 0;
+  border-radius: 50px;
+}
+
+.spinContainer {
+  position: relative;
+  @media (max-width: 767px) {
+    margin-bottom: 120px;
+    & canvas {
+      width: 300px !important;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+  & .spinNowContainer {
+    position: absolute;
+    box-shadow: 0px 12px 14px 0px #00000040;
+    padding: 19px 30px 56px;
+    border-radius: 15px;
+    top: 48%;
+    left: 0;
+    right: 0;
+    bottom: 45px;
+    background-color: #fff;
+    text-align: center;
+    @media (max-width: 767px) {
+      bottom: unset !important;
+      padding: 19px 10px 19px;
+    }
+    & h4 {
+      font-family: Poppins;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 20px;
+      letter-spacing: 0.02em;
+      text-align: center;
+      margin: 0;
+      @media (max-width: 767px) {
+        font-size: 14px;
+      }
+    }
+    & h2 {
+      font-family: Poppins;
+      font-size: 33px;
+      font-weight: 600;
+      text-align: center;
+      margin: 0 0 47px;
+      @media (max-width: 767px) {
+        font-size: 16px;
+        margin: 0 0 14px;
+      }
+    }
+    & button {
+      width: 208px;
+      height: 52px;
+      margin: 0 auto;
+      border-radius: 200px;
+      @media (max-width: 767px) {
+        font-size: 14px;
+        width: 120px;
+        height: 34px;
+        min-height: 34px;
+      }
+    }
+  }
+  & .priceList {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 13px;
+    & span {
+      text-decoration: underline;
+    }
+    & svg {
+      fill: transparent;
+    }
+  }
+}
+
+.coming {
+  display: flex;
+  box-shadow: 0px 14px 12px 0px #00000040;
+  max-width: 436px;
+  margin: 52px 0;
+  padding: 37px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  & h4 {
+    font-family: Poppins;
+    font-size: 33px;
+    font-weight: 600;
+    line-height: 33px;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+  }
+  & p {
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 33px;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    max-width: 100px;
+  }
+  & .lineItems {
+    display: flex;
+    justify-content: space-between;
+    max-width: 164.9px;
+    width: 100%;
+  }
+  & .Firstline {
+    width: 14.81px;
+    height: 122.44px;
+    border-radius: 100px;
+    background-color: #4c5368;
+    display: flex;
+    justify-content: space-between;
+    margin-top: -20px;
+  }
+  & .Secondline {
+    width: 14.81px;
+    height: 122.44px;
+    border-radius: 100px;
+    background-color: #4c5368;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.ConfirmmodalContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.voucherCard{
+  & img{
+    width: 100%;
+  }
+}
+
+.smallImage{
+  height: 250px;
+}
+
+.largeImage{
+  height: 262px;
+  width: 100%;
+}
+
+:global(.large-slider){
+  & :global(.slick-slide):not(:last-child){
+    padding-right: 46px !important;
+    @media (max-width:576px) {
+      padding-right: 22px !important;
+    }
+  }
+}

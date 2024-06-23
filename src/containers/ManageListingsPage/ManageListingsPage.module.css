@@ -1,0 +1,407 @@
+@import '../../styles/customMediaQueries.css';
+
+.root {
+}
+
+.tabs {
+  display: none;
+
+  @media (--viewportMedium) {
+    display: flex;
+    justify-content: flex-end;
+    height: 55px;
+    align-items: flex-end;
+    padding: 13px 24px 0 24px;
+  }
+
+  @media (--viewportLarge) {
+    padding: 0 36px;
+  }
+}
+
+.tab {
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  margin-left: 16px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  @media (--viewportLarge) {
+    margin-left: 24px;
+  }
+}
+
+.messagePanel,
+.listingPanel {
+  width: 100%;
+  padding: 48px 0 0;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 40vh;
+  @media (--viewportMedium) {
+    padding: 48px 0 0;
+    margin: 0 auto;
+  }
+
+  @media (--viewportLarge) {
+    padding: 86px 0 0;
+    margin: 0 auto;
+    max-width: 1367px;
+  }
+
+  @media (--viewportXLarge) {
+    max-width: 1367px;
+  }
+}
+
+.noResultsContainer {
+  margin: 0 24px;
+
+  @media (--viewportMedium) {
+    margin: 0 24px 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (--viewportLarge) {
+    margin: 0 78px 20px;
+  }
+}
+
+.heading {
+  margin: 0 24px 24px 24px;
+  & h1 {
+    color: #4a4a4a;
+    font-family: Poppins;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 123.077% */
+    letter-spacing: -1px;
+    margin: 0 0 20px;
+    @media (--viewportMedium) {
+      margin: 0;
+    }
+  }
+  @media (--viewportMedium) {
+    margin: 0 24px 32px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media (--viewportLarge) {
+    margin: 0 78px 32px 78px;
+  }
+}
+
+.layoutTypeWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.layoutType {
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  background: #afb4c2;
+  padding-right: 8px;
+  margin-left: 35px;
+  width: 95px;
+  cursor: pointer;
+}
+
+.activeLayout {
+  border-radius: 15px;
+  background: var(--Lighter, #4c5368);
+  padding: 2px 4px;
+}
+
+.notActive {
+  padding-left: 5px;
+}
+
+.lasItem {
+  transform: translateX(9px);
+  padding-right: 6px;
+  padding-left: 0;
+  &.activeLayout {
+    padding: 2px 6px;
+  }
+  & span {
+    height: 34px;
+    width: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  & svg {
+    & path {
+      fill: #fff;
+    }
+  }
+}
+
+.createListingParagraph,
+.headingNoListings {
+  margin: 0 0 12px 0;
+
+  @media (--viewportMedium) {
+    margin: 0 0 8px 0;
+  }
+
+  @media (--viewportLarge) {
+    margin: 0 0 8px 0;
+  }
+}
+
+.listingCards {
+  padding: 0 24px;
+
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 24px;
+  width: 100%;
+
+  @media (min-width: 550px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (--viewportMedium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (--viewportLarge) {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 78px;
+  }
+}
+
+.listingCard {
+  margin-bottom: 36px;
+  width: 100%;
+}
+
+/**
+ * Remove margin-right from listingCards on the last column
+ * This is a special case in the world of breakpoints. Nth-of-type effects every nth item.
+ * Here we take margin-right away, but we don't want it affect the next column breakpoint.
+ */
+
+.listingCard:nth-of-type(2n) {
+  @media screen and (min-width: 768px) and (max-width: 1920px) {
+    margin-right: 0;
+  }
+}
+
+.listingCard:nth-of-type(3n) {
+  @media (--viewportXLarge) {
+    margin-right: 0;
+  }
+}
+
+.pagination {
+  /* margin-top: auto; pushes pagination to the end of the page. */
+  margin: auto 24px 0 24px;
+
+  @media (--viewportLarge) {
+    margin: auto 36px 0 36px;
+  }
+}
+
+.layoutSingleColumn {
+  background: #f7f9fb;
+}
+
+.listingCardsTableWrapper {
+  padding: 0 22px;
+  margin-bottom: 50px;
+  @media (--viewportLarge) {
+    padding: 0 78px;
+  }
+}
+
+.listingCardsTable {
+  border-radius: 15px;
+  border: 1px solid var(--line, #bebebe);
+  background: #fff;
+  @media (max-width: 1024px) {
+    max-width: calc(100vw - 46px);
+    overflow-x: auto;
+  }
+  & table {
+    width: 100%;
+    @media (max-width: 767px) {
+      min-width: 880px;
+    }
+    & thead {
+      & td {
+        padding-top: 25px;
+        padding-bottom: 15px;
+        color: var(--Lighter, #4c5368);
+        text-align: center;
+        font-family: Poppins;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 32px; /* 228.571% */
+        min-width: 100px;
+      }
+      & td:first-child {
+        padding-left: 30px;
+        @media (max-width: 767px) {
+          padding-left: 10px;
+        }
+      }
+      & td:last-child {
+        padding-right: 30px;
+        @media (max-width: 767px) {
+          padding-right: 10px !important;
+        }
+      }
+    }
+    & tbody {
+      & tr {
+        padding: 26px 30px;
+        & td {
+          padding-top: 26px;
+          padding-bottom: 26px;
+        }
+        & td:first-child {
+          padding-left: 30px;
+          @media (max-width: 767px) {
+            padding-left: 10px;
+          }
+        }
+        & td:last-child {
+          padding-right: 30px;
+          @media (max-width: 767px) {
+            padding-right: 10px;
+          }
+        }
+      }
+      & tr:nth-child(even) {
+        background: var(--Background, #f7f9fb);
+      }
+    }
+  }
+}
+
+/* .menu {
+  display: none;
+}
+
+.cardIsOpen {
+  display: block;
+  & .manageLink{
+    color: #fff;
+  }
+} */
+
+.searchWrapper {
+  max-width: 384px;
+  width: 100%;
+  position: relative;
+  & input {
+    padding-left: 40px;
+  }
+  &:after {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    content: '';
+    left: 10px;
+    top: 9px;
+    background-image: url("data:image/svg+xml,%3Csvg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.7778 15.7778L20 20M1 9.44444C1 11.6841 1.88968 13.8319 3.47332 15.4156C5.05696 16.9992 7.20484 17.8889 9.44444 17.8889C11.6841 17.8889 13.8319 16.9992 15.4156 15.4156C16.9992 13.8319 17.8889 11.6841 17.8889 9.44444C17.8889 7.20484 16.9992 5.05696 15.4156 3.47332C13.8319 1.88968 11.6841 1 9.44444 1C7.20484 1 5.05696 1.88968 3.47332 3.47332C1.88968 5.05696 1 7.20484 1 9.44444Z' stroke='%23383F52' stroke-width='2' strokeLinecap='round' strokeLinejoin='round'/%3E%3C/svg%3E%0A");
+  }
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 78px 32px 78px;
+  @media (max-width: 767px) {
+    flex-wrap: wrap;
+    padding: 0 22px 32px 22px;
+  }
+}
+
+.selectFields {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 509px;
+  width: 100%;
+  @media (max-width: 767px) {
+    flex-wrap: wrap;
+  }
+}
+
+.outSideClick {
+  margin-left: auto;
+  display: block !important;
+  margin-right: 3px;
+}
+
+.filter {
+  border-radius: 8px;
+  border: 1px solid #d8dce6;
+  background: var(--Main-Color, #383f52);
+  color: var(--white, #fff);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px; /* 228.571% */
+  display: flex;
+  width: 58.857px;
+  height: 43px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* .menuContent{
+  
+} */
+
+.menu {
+  margin-left: auto;
+  & > button {
+    width: max-content;
+    margin-left: auto;
+    display: block;
+  }
+  & > div {
+    width: 180px !important;
+    padding: 5px;
+    z-index: 9;
+  }
+}
+
+.earnings {
+  padding: 10px 80px 10px 20px;
+  text-align: right;
+  @media (max-width:1023px) {
+    padding: 10px 20px 10px 20px;
+  }
+  & b {
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 26px;
+    text-align: right;
+  }
+  & > span {
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 26px;
+    text-align: right;
+  }
+}

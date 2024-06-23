@@ -1,0 +1,55 @@
+@import '../../../../styles/customMediaQueries.css';
+
+.root {
+  /* Dimensions */
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+
+  @media (--viewportMedium) {
+    padding-top: 2px;
+  }
+}
+
+.error {
+  color: var(--colorFail);
+}
+
+.input {
+  flex-shrink: 0;
+  width: 100%;
+  margin-bottom: 24px;
+
+  @media (--viewportMedium) {
+    margin-bottom: 32px;
+  }
+}
+
+.unitTypeHidden {
+  display: none;
+}
+
+.submitButton {
+  margin-top: auto;
+  margin-bottom: 24px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  @media (--viewportLarge) {
+    display: inline-block;
+    width: 241px;
+    margin-top: 15px;
+  }
+}
+
+
+.fieldsRow {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  & > div {
+    flex: 1;
+  }
+}

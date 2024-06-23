@@ -1,0 +1,91 @@
+.cardFee {
+  & .largeText {
+    color: var(--Accent, #f0b90b);
+    font-family: Poppins;
+    font-size: 33px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px; /* 90.909% */
+  }
+
+  margin: 0;
+  padding: 0;
+}
+
+.mediumText {
+    color: var(--white, #fff);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+  &.yellow{
+    color: var(--Accent, #f0b90b);
+  }
+}
+.smallText {
+  color: var(--white, #fff);
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.buttonWhiteRound {
+  display: flex;
+  height: 42px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 100px;
+  background: var(--white, #fff);
+  min-height: 42px;
+  margin-bottom: 25px;
+  margin-top: 19px;
+  &.btnYellow {
+    background: var(--Accent, #f0b90b);
+  }
+  & span {
+    color: var(--Darker, #0e1319);
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  &:hover {
+    background: var(--white, #fff);
+  }
+}
+
+.planIncludes {
+  padding: 0;
+  margin: 0 0 8px;
+  & span {
+    color: var(--white, #fff);
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+  }
+}
+
+.planInfo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  & span {
+    color: var(--white, #fff);
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px; /* 185.714% */
+  }
+  & svg {
+    fill: transparent;
+  }
+}

@@ -1,0 +1,208 @@
+* {
+  box-sizing: border-box;
+}
+
+.manageSubscriptionPanel {
+  /* background: #e5e5e575; */
+  padding: 10px 40px 40px;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+}
+
+.userDetals {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+}
+
+.billingInformationTitle {
+  font-size: 24px;
+  line-height: 28px;
+  color: var(--matterColorDark);
+  text-align: center;
+  margin: 30px 0;
+  font-weight: 600;
+}
+
+.tableBox {
+  background-color: #fff;
+  padding: 30px;
+  box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 20%);
+  -webkit-box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 20%);
+  -moz-box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 20%);
+  border-radius: 5px;
+
+  @media (max-width: 1200px) {
+    padding: 20px;
+  }
+
+  @media (max-width: 1360px) {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  & .tableStriped {
+    overflow-x: auto !important;
+    width: 100% !important;
+
+    & td {
+      border-left: 0;
+      border-right: 0;
+    }
+
+    & th {
+      border-left: 0;
+      border-right: 0;
+      border-top: 0;
+    }
+
+    & tbody {
+      & tr {
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+.subscriptionButton {
+  min-height: 56px;
+  padding: 10px;
+}
+
+.title {
+  color: #4a4a4a;
+  font-family: Poppins;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 123.077% */
+  letter-spacing: -1px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 15px;
+  &:after {
+    position: absolute;
+    content: '';
+    top: 100%;
+    left: 0;
+    height: 1px;
+    width: 60%;
+    background: var(--line, #bebebe);
+  }
+}
+
+.planIncludes {
+  color: var(--Lighter, #4c5368);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  margin: 19px 0 8px;
+  padding: 0;
+}
+
+.planInfo {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  color: var(--Lighter, #4c5368);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px; /* 185.714% */
+}
+
+.monthText {
+  color: #4a4a4a;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -1px;
+}
+
+.buttonRound {
+  border-radius: 100px;
+  max-width: 270px;
+  margin-top: 20px;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  background-color: #000;
+}
+
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btnLink {
+  display: block;
+  max-width: 270px;
+  width: 100%;
+}
+
+.deleteAccount {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.reportUserTitle {
+  font-family: Poppins;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 33px;
+  text-align: left;
+  margin: -30px 0 24px;
+  border-bottom: 1px solid #bebebe;
+  padding-bottom: 20px;
+}
+
+.label {
+  text-align: left;
+}
+
+.ReportSubmitbutton {
+  color: #fff;
+  border-radius: 50px;
+  margin-top: 20px;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+}
+
+.reportText {
+  margin-top: 20px;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: -0.20000000298023224px;
+  text-align: center;
+  color: #4C5368;
+  
+}

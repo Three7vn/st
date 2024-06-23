@@ -1,0 +1,493 @@
+@import '../../styles/customMediaQueries.css';
+
+.error {
+  margin-top: 5px;
+
+  @media (--viewportMedium) {
+    margin-top: 4px;
+  }
+  @media (--viewportLarge) {
+    margin-top: 3px;
+  }
+}
+
+.error {
+  color: var(--colorFail);
+}
+
+.aside {
+  box-shadow: none;
+}
+
+.asideContent {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--colorGrey100);
+
+  @media (--viewportLarge) {
+    flex-direction: column;
+    border-bottom: none;
+  }
+}
+
+.avatar {
+  margin: 0;
+  flex-shrink: 0;
+
+  @media (--viewportLarge) {
+    margin: 0 0px 0px 0;
+    width: 149px;
+    height: 149px;
+  }
+}
+
+.mobileHeading {
+  flex-shrink: 0;
+  margin: 60px 0 0 0;
+
+  @media (--viewportMedium) {
+    margin: 49px 0 0 0;
+  }
+  @media (--viewportLarge) {
+    display: none;
+  }
+}
+
+.editLinkMobile {
+  margin-top: 17px;
+
+  /* Pull the link to the end of the container */
+  margin-left: auto;
+
+  @media (--viewportMedium) {
+    margin-top: 20px;
+  }
+  @media (--viewportLarge) {
+    display: none;
+  }
+}
+
+.editLinkDesktop {
+  display: none;
+
+  @media (--viewportLarge) {
+    display: inline;
+    padding: 6px 0 2px 0;
+  }
+}
+
+.desktopHeading {
+  display: none;
+
+  @media (--viewportLarge) {
+    display: block;
+    margin: 0 0 24px 0;
+  }
+}
+
+.bio {
+  /* Preserve newlines, but collapse other whitespace */
+  white-space: pre-line;
+  margin: 5px 0 24px 0;
+
+  @media (--viewportMedium) {
+    margin: 4px 0 51px 0;
+  }
+  @media (--viewportLarge) {
+    margin: 0 0 56px 0;
+    max-width: 600px;
+  }
+}
+
+.listingsContainer {
+  composes: clearfix from global;
+  border-top: 1px solid var(--colorGrey100);
+  padding-bottom: 23px;
+
+  @media (--viewportMedium) {
+    padding-bottom: 22px;
+  }
+}
+
+.listingsTitle {
+  color: var(--colorGrey700);
+  margin-bottom: 0;
+
+  @media (--viewportMedium) {
+    margin-top: 48px;
+    margin-bottom: 8px;
+  }
+  @media (--viewportLarge) {
+    margin-top: 56px;
+    margin-bottom: 8px;
+  }
+}
+
+.withBioMissingAbove {
+  /* Avoid extra borders in mobile when bio is missing */
+  border-top: none;
+
+  @media (--viewportLarge) {
+    border-top: 1px solid var(--colorGrey100);
+  }
+}
+
+.listings {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 42px 51px;
+  margin-top: 47px;
+}
+
+.listing {
+  width: 100%;
+
+  @media (--viewportMedium) {
+    /* Two columns in desktop */
+    width: calc(50% - 21px);
+  }
+  @media (--viewportLarge) {
+    /* Two columns in desktop */
+    width: calc(25% - 40px);
+  }
+}
+
+.mobileReviewsTitle {
+  margin: 24px 0 26px 0;
+}
+
+.mobileReviews {
+  border-top: 1px solid var(--colorGrey100);
+  margin-bottom: 36px;
+}
+
+.desktopReviews {
+  border-top: 1px solid var(--colorGrey100);
+
+  @media (--viewportMedium) {
+    margin-bottom: 48px;
+  }
+
+  @media (--viewportLarge) {
+    margin-bottom: 0;
+  }
+}
+
+.desktopReviewsWrapper {
+  max-width: 600px;
+  margin-top: 28px;
+}
+
+.desktopReviewsTitle {
+  composes: textLarge from global;
+  margin-bottom: 0;
+}
+
+.desktopReviewsTabNav {
+  margin-bottom: 32px;
+}
+
+.mainContentWrapper {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.layoutSingleColumn {
+  background: #d3d8dc;
+}
+
+.asideContent {
+  border-radius: 20px;
+  background: #fff;
+  & > img {
+    width: 100%;
+  }
+}
+
+.asideContents {
+  display: flex;
+  padding: 22px 65px 22px 95px;
+  gap: 28px;
+  align-items: center;
+  flex-wrap: wrap;
+  @media (max-width: 1023px) {
+    padding: 22px 16px 22px 16px;
+  }
+}
+
+.businessId {
+  color: var(--Light-Text, #5f635c);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+  padding: 0;
+}
+
+.businessDetails {
+  color: var(--Forest, #1e2915);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 125% */
+  margin: 0;
+  padding: 0;
+  max-width: 446px;
+}
+
+.infoDetails {
+  flex: 1;
+}
+
+.title {
+  color: var(--Forest, #1e2915);
+  font-family: Poppins;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 123.077% */
+  letter-spacing: -1px;
+  margin: 0 0 8px;
+  padding: 0;
+  & b {
+    font-weight: 600;
+  }
+}
+
+.shareButtons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  @media (max-width: 767px) {
+    gap: 5px;
+  }
+}
+
+.followButton {
+  color: var(--Darker, #0e1319);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  width: 122px;
+  height: 32px;
+  flex-shrink: 0;
+  background-color: #f0b90b;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  @media (max-width: 767px) {
+    width: 100px;
+  }
+}
+
+.shareButton {
+  color: var(--white, #fff);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  background-color: #000;
+  width: 106px;
+  height: 32px;
+  border-radius: 50px;
+  @media (max-width: 767px) {
+    width: 94px;
+  }
+}
+
+.allCategory {
+  border: 1px solid #d8dce6;
+  padding: 3px 32px 3px 16px;
+  line-height: 32px;
+  font-size: 14px;
+  color: #0e1319;
+  font-family: var(--fontFamily);
+  font-weight: 400;
+  border-radius: 6px;
+}
+
+.MessageButton {
+  width: 122px;
+  height: 32px;
+  color: var(--white, #fff);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  background-color: #000;
+  border-radius: 50px;
+}
+
+.reviewsSection {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.deliverStatus {
+  text-align: right;
+  color: var(--Light-Text, #5f635c);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.305px;
+  margin-top: 11px;
+}
+
+.Container {
+  border-radius: 20px;
+  background: #fff;
+  padding: 46px 62px;
+  max-width: 1400px;
+  margin: 26px auto;
+  width: 100%;
+  @media (max-width: 767px) {
+    padding: 46px 22px;
+  }
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  @media (max-width: 767px) {
+    flex-wrap: wrap;
+  }
+}
+
+.selectFields {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 509px;
+  width: 100%;
+  @media (max-width: 767px) {
+    flex-wrap: wrap;
+  }
+}
+
+.searchWrapper {
+  max-width: 384px;
+  width: 100%;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  & > div {
+      min-width: 300px;
+      
+    }
+  @media (min-width: 768px) {
+    & > div {
+      min-width: 600px;
+      min-height: 300px;
+    }
+  }
+}
+
+.shareContent{
+  padding-top: 80px;
+}
+
+.modalTitle{
+  color: #000;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 40px;
+  text-align: center;
+}
+
+.avatarModal {
+  left: 50%;
+  position: absolute;
+  top: 0;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: 5px solid #fff;
+  border-radius: 50%;
+  height: 160px;
+  margin: 0 auto;
+  width: 160px;
+}
+
+.modal {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modalContent {
+  position: relative;
+}
+
+.reviewRattingContainer{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.linkIconButton {
+  align-items: center;
+  background-color: #040809;
+  border-radius: 4px;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  width: 40px;
+  cursor: pointer;
+}
+
+.linkIconButtonImg {
+  width: 50px;
+  height: 50px;
+}
+
+.socialLinks{
+  align-items: center;
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.linkCopied{
+  text-align: center;
+}

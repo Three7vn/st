@@ -1,0 +1,248 @@
+@import '../../../styles/customMediaQueries.css';
+
+.root {
+  /* Layout */
+  display: flex;
+  /* Remove link's hover effect */
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.aspectRatioWrapper {
+  transition: var(--transitionStyleButton);
+  background: var(--colorGrey100); /* Loading BG color */
+  border-radius: 0;
+  width: 174px;
+  height: 174px;
+  @media (max-width:1023px) {
+    width: 84px;
+  height: 84px;
+  }
+  /* 
+  @media (--viewportMedium) {
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: var(--boxShadowListingCard);
+    }
+  } */
+}
+.lineRow{
+  display: flex;
+  justify-content:space-between;
+  flex-wrap: wrap;
+  & .saveWishlist{
+    color: #3065A1;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: -0.75px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+.rootForImage {
+  border: solid 1px var(--colorGrey100);
+  border-radius: var(--borderRadiusMedium);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  padding: 0px 0 0px 0;
+  flex: 1;
+}
+
+.priceWrapper {
+  margin-bottom: 23px;
+  z-index: 0;
+  position: relative;
+  & p {
+    color: #4c5368;
+    font-family: Avenir;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 32px; /* 177.778% */
+    letter-spacing: -0.75px;
+    margin: 0;
+  }
+  & span {
+    color: var(--Black, #000);
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+  }
+}
+
+.bagButton {
+  /* width: 73.09px; */
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  background: var(--Sand---Primary, #efe4d3);
+  color: var(--Black, #000);
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; 
+  height: 33px; */
+  /* & > span {
+    padding: 4px 9.7px 4px 10px;
+    cursor: pointer;
+    gap: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
+}
+
+.price {
+  /* Layout */
+  /* display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  margin-bottom: 4px; */
+  color: #4c5368;
+  font-family: Avenir;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 32px; /* 177.778% */
+  letter-spacing: -0.75px;
+  padding: 0;
+}
+
+.priceValue {
+  /* Font */
+  composes: textSmall from global;
+  font-weight: var(--fontWeightSemiBold);
+
+  /* Remove default margins from font */
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @media (--viewportMedium) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.perUnit {
+  /* Font */
+  composes: textSmall from global;
+  font-weight: var(--fontWeightSemiBold);
+
+  color: var(--marketplaceColor);
+  display: inline-flex;
+  align-items: center;
+  margin-left: 2px;
+
+  /* Remove default margins from font */
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @media (--viewportMedium) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.mainInfo {
+  display: flex;
+  /* flex-direction: column; */
+  flex: 1;
+  position: relative;
+}
+.titleBox {
+  display: flex;
+  align-items: center;
+gap: 6px;
+  & .title {
+    color: #0e1319;
+    font-family: Poppins;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px; /* 152.381% */
+    margin: 0;
+    padding: 0px 0px;
+  }
+  & .soldOutText {
+    & span {
+      font-size:14px
+    }
+  }
+}
+
+.infoLeft {
+  flex: 1;
+}
+
+.cardFooter {
+  display: flex;
+
+  justify-content: flex-end;
+  padding: 12px;
+  @media (max-width:1023px) {
+    padding: 4px;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+.lineItem {
+  color: #4a4a4a;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px; /* 200% */
+  letter-spacing: -0.348px;
+  display: flex;
+  gap: 61px;
+  @media (max-width:1023px) {
+    gap: 12px;
+  }
+  & span {
+    min-width: 87px;
+  }
+}
+
+.authorInfo {
+  /* Font */
+  composes: marketplaceTinyFontStyles from global;
+  font-weight: var(--fontWeightMedium);
+  color: var(--colorGrey700);
+
+  padding-top: 4px;
+  padding-bottom: 4px;
+
+  /* Remove default margins from font */
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @media (--viewportMedium) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.longWord {
+  /* fallback option */
+  word-break: break-all;
+  /* use break-word if available */
+  word-break: break-word;
+  hyphens: auto;
+}
