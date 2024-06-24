@@ -6,7 +6,7 @@
 
 .desktopInputRoot {
   height: var(--topbarHeightDesktop);
-  
+
 }
 
 .mobileIcon {
@@ -50,7 +50,7 @@
   line-height: 21px;
   letter-spacing: -0.2666666805744171px;
   text-align: left;
-  
+
   /* Layout */
   height: 35px;
   border-radius: 20px;
@@ -97,8 +97,8 @@
   border: none;
   padding-top: 0;
   padding-bottom: 0;
-  padding-left: 10px;
-  background-color: var(--marketplaceColorLight);
+  padding-left: 15px;
+  background-color: white;
   /* Search text gets ellipsis if it's too wide */
   text-overflow: ellipsis;
   overflow-x: hidden;
@@ -117,7 +117,7 @@
 
   &:hover::placeholder,
   &:focus::placeholder {
-    color: var(--colorGrey700);
+    color: var(--colorGrey100);
   }
 
   /* Placeholder text might be too wide */

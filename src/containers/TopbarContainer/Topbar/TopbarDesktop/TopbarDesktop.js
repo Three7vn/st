@@ -43,11 +43,11 @@ const SignupLink = () => {
   );
 };
 
-const SignupLinkForFree = () => {
+const ReferAndEarn = () => {
   return (
-    <NamedLink name="SignupPage" className={classNames(css.topbarLink, css.signUpFree)}>
+    <NamedLink name="SignupPage" className={classNames(css.topbarLink, css.referAndEarn)}>
       <span className={css.topbarLinkLabel}>
-        <FormattedMessage id="TopbarDesktop.signupForFree" />
+        <FormattedMessage id="TopbarDesktop.referandearn" />
       </span>
     </NamedLink>
   );
@@ -214,7 +214,7 @@ const CatgeoryMenu = ({ handleCategoryDropDown, isCategoryOpen, history, routeCo
             handleCategoryDropDown();
           }}
         >
-          <IconCollection icon="logoBarIcon2" />
+          <IconCollection icon="logoBarIcon" />
         </div>
       )}
       <div
@@ -428,7 +428,7 @@ const TopbarDesktop = props => {
   );
 
   const signupLinkMaybe = isAuthenticatedOrJustHydrated ? null : <SignupLink />;
-  const signupLinkForFree = isAuthenticatedOrJustHydrated ? null : <SignupLinkForFree />;
+  const referAndEarn = isAuthenticatedOrJustHydrated ? null : <ReferAndEarn />;
   const loginLinkMaybe = isAuthenticatedOrJustHydrated ? null : <LoginLink />;
 
   return (
@@ -470,7 +470,7 @@ const TopbarDesktop = props => {
         </NamedLink>
         <NamedLink name="LoginPage" className={css.topbarLink}>
           <span className={css.topbarLinkLabel}>
-            <FormattedMessage id="TopbarDesktop.protectionPromise" />
+            <FormattedMessage id="TopbarDesktop.VerifyPlus" />
           </span>
         </NamedLink>
         <NamedLink name="LoginPage" className={css.topbarLink}>
@@ -495,7 +495,6 @@ const TopbarDesktop = props => {
 
         <span className={css.addToCartIcon}> {isAuthenticatedOrJustHydrated && addToCartIcon}</span>
         {profileMenuMaybe}
-        {signupLinkForFree}
         {!isAuthenticatedOrJustHydrated && (
           <div className={css.customLink}>
             <CustomLinksMenu
@@ -508,6 +507,7 @@ const TopbarDesktop = props => {
             />
           </div>
         )}
+        {referAndEarn}
         {!isAuthenticatedOrJustHydrated && addToCartIcon}
         {/* {signupLinkMaybe}
         {loginLinkMaybe} */}
