@@ -1,18 +1,19 @@
 @import '../../styles/customMediaQueries.css';
 
 .root {
-  /* Layout */
   display: flex;
   flex-direction: column;
   position: relative;
-  /* Remove link's hover effect */
   box-shadow: 0px 14px 24px 0px rgba(0, 0, 0, 0.04);
   border-radius: 15px;
   overflow: hidden;
   height: 100%;
+  cursor: pointer;
+  transition: transform 0.3s;
 
   &:hover {
     text-decoration: none;
+    transform: scale(1.05);
   }
 }
 
@@ -24,7 +25,6 @@
 }
 
 .link {
-  
   display: flex;
   flex-direction: column;
 
@@ -32,6 +32,7 @@
     text-decoration: none;
   }
 }
+
 .openListingButton {
   background-color: #dfeafd;
   height: 41px;
@@ -43,23 +44,24 @@
   font-size: 13px;
   font-style: normal;
   font-weight: 600;
-  line-height: 16px; /* 123.077% */
+  line-height: 16px;
   letter-spacing: -0.2px;
-  /* margin-top + n * line-height + margin-bottom => x * 6px */
   margin-top: 10px;
   margin-bottom: 8px;
 
   @media (--viewportMedium) {
-    /* margin-top + n * line-height + margin-bottom => x * 8px */
     margin-top: 10px;
     margin-bottom: 14px;
   }
 }
+
 .notClickable {
   position: relative;
+
   &:hover {
     text-decoration: none;
   }
+
   & img,
   & .title {
     opacity: 0.5;
@@ -72,16 +74,12 @@
   overflow: hidden;
   min-height: 240px;
   max-height: 240px;
-  /* @media (--viewportMedium) {
-    &:hover {
-      transform: scale(1.02);
-      box-shadow: var(--boxShadowListingCard);
-    }
-  } */
-  @media (max-width:767px) {
+
+  @media (max-width: 767px) {
     min-height: 131px;
     max-height: 131px;
   }
+
   & span {
     z-index: 9;
   }
@@ -94,25 +92,25 @@
 }
 
 .info {
-  /* Layout */
   display: flex;
   flex-direction: column;
   padding: 10px 16px 20px 16px;
   flex: 1;
   justify-content: space-between;
-  @media (max-width:767px) {
+
+  @media (max-width: 767px) {
     padding: 10px 9px 9px 9px;
   }
 }
 
 .price {
-  /* Layout */
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   flex-shrink: 0;
   margin-bottom: 4px;
-  @media (max-width:767px) {
+
+  @media (max-width: 767px) {
     margin-bottom: 0px;
   }
 }
@@ -123,17 +121,19 @@
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  line-height: 20px; /* 111.111% */
+  line-height: 20px;
 
   @media (--viewportMedium) {
     margin-top: 0;
     margin-bottom: 0;
   }
-  @media (max-width:767px) {
+
+  @media (max-width: 767px) {
     font-size: 13px;
     line-height: 32px;
   }
 }
+
 .seeSimilarBtn {
   display: flex;
   width: 100%;
@@ -170,7 +170,8 @@
   line-height: normal;
   border-radius: 50px;
   cursor: pointer;
-  @media (max-width:767px) {
+
+  @media (max-width: 767px) {
     height: 23px;
     font-size: 12px;
     width: 82px;
@@ -178,16 +179,12 @@
 }
 
 .perUnit {
-  /* Font */
-  composes: textSmall from global;
+  font-family: Poppins;
   font-weight: var(--fontWeightSemiBold);
-
   color: var(--marketplaceColor);
   display: inline-flex;
   align-items: center;
   margin-left: 2px;
-
-  /* Remove default margins from font */
   margin-top: 0;
   margin-bottom: 0;
 
@@ -203,16 +200,16 @@
 }
 
 .title {
-  /* Font */
   color: var(--Darker, #0e1319);
   font-family: Poppins;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 32px; /* 177.778% */
+  line-height: 32px;
   letter-spacing: -0.75px;
   margin: 0;
-  @media (max-width:767px) {
+
+  @media (max-width: 767px) {
     font-size: 13px;
     line-height: 32px;
     white-space: nowrap;
@@ -225,18 +222,18 @@
 .category {
   display: flex;
   flex-wrap: wrap;
-  overflow:hidden;
+  overflow: hidden;
   max-width: 100%;
   gap: 8px;
   align-items: center;
-
   margin-top: 10px;
-
   padding-bottom: 0px;
   height: 40px;
-  @media (max-width:767px) {
+
+  @media (max-width: 767px) {
     display: none;
   }
+
   & > span {
     border-radius: 8px;
     background: #dfeafd;
@@ -245,7 +242,7 @@
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 32px; /* 266.667% */
+    line-height: 32px;
     padding: 0 12px;
     white-space: nowrap;
   }
@@ -258,23 +255,20 @@
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid #e6e6e6;
-  @media (max-width:767px) {
-   border: 0;
-   margin-top: 5px;
-   padding-top: 0px;
+
+  @media (max-width: 767px) {
+    border: 0;
+    margin-top: 5px;
+    padding-top: 0px;
   }
 }
 
 .authorInfo {
-  /* Font */
-  composes: marketplaceTinyFontStyles from global;
+  font-family: Poppins;
   font-weight: var(--fontWeightMedium);
   color: var(--colorGrey700);
-
   padding-top: 4px;
   padding-bottom: 4px;
-
-  /* Remove default margins from font */
   margin-top: 0;
   margin-bottom: 0;
 
@@ -285,9 +279,7 @@
 }
 
 .longWord {
-  /* fallback option */
   word-break: break-all;
-  /* use break-word if available */
   word-break: break-word;
   hyphens: auto;
 }
@@ -300,8 +292,9 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 32px; /* 200% */
+  line-height: 32px;
   letter-spacing: -0.75px;
+ ```css
   padding: 3px 15px;
   position: absolute;
   right: 0;
@@ -315,4 +308,57 @@
   top: 0;
   bottom: 0;
   z-index: 5;
+}
+
+.hoverOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  pointer-events: none;
+}
+
+.hoverInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hoverInfo .title {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.hoverInfo .category {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hoverInfo .category span {
+  background: #fff;
+  color: #0e1319;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+.hoverInfo .price {
+  color: #fff;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.hoverInfo .buyNowBtn {
+  background: #fff;
+  color: #0e1319;
+  margin-top: 10px;
 }
