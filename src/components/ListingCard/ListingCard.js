@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { string, func, bool } from 'prop-types';
 import classNames from 'classnames';
 
@@ -32,13 +32,10 @@ import { fetchCurrentUser } from '../../ducks/user.duck';
 import { useRouteConfiguration } from '../../context/routeConfigurationContext';
 import { wishlistListingSuccess } from '../../containers/MyWishlistPage/MyWishlistPage.duck';
 import { types as sdkTypes } from '../../util/sdkLoader';
-import Overlay from '../../containers/ManageListingsPage/ManageListingCard/Overlay';
-const MIN_LENGTH_FOR_LONG_WORDS = 10;
 
-const { UUID} = sdkTypes;
+const { UUID } = sdkTypes;
 
 const priceData = (price, currency, intl) => {
-  // Assuming formatMoney is a function that formats the price correctly
   const formatMoney = (intl, amount) => {
     return new Intl.NumberFormat(intl.locale, {
       style: 'currency',
@@ -47,7 +44,7 @@ const priceData = (price, currency, intl) => {
   };
 
   if (price && price.currency === currency) {
-    const formattedPrice = formatMoney(intl, price.amount/100);
+    const formattedPrice = formatMoney(intl, price.amount / 100);
     return { formattedPrice, priceTitle: formattedPrice };
   }
 
@@ -95,24 +92,14 @@ const PriceMaybe = props => {
   );
 };
 
-export const ListingCardComponent = props => {
+const ListingCardComponent = props => {
   const config = useConfiguration();
   const dispatch = useDispatch();
   const routeConfiguration = useRouteConfiguration();
   const history = useHistory();
   const state = useSelector(state => state);
   const { currentUser } = state.user;
-  const {
-    className,
-    rootClassName,
-    intl,
-    listing,
-    renderSizes,
-    setActiveListing,
-    showAuthorInfo,
-    isWhishlist,
-    isProfile,
-  } = props;
+  const { className, rootClassName, intl, listing, renderSizes, setActiveListing, showAuthorInfo, isWhishlist, isProfile } = props;
   const classes = classNames(rootClassName || css.root, className);
   const currentListing = ensureListing(listing);
   const id = currentListing.id.uuid;
@@ -123,8 +110,19 @@ export const ListingCardComponent = props => {
   const slug = createSlug(title || '');
   const author = ensureUser(listing.author);
   const authorName = author.attributes.profile.displayName;
-  const firstImage =
-    currentListing.images && currentListing.images.length > 0 ? currentListing.images[0] : null;
+  const firstImage = currentListing.images && currentListing.images.length > 0 ? currentListing.images[0] : null;
+
+  const [hover, setHover] = useState(false);
+
+  const handleMouseEnter = () => {
+    setTimeout(() => {
+      setHover(true);
+    }, 2000);
+  };
+
+  const handleMouseLeave = () => {
+    setHover(false);
+  };
 
   const {
     listingsSoldPrice,
@@ -137,21 +135,18 @@ export const ListingCardComponent = props => {
   const isExceedPriceLimit = checkPriceLimit(listingsSoldPrice, freePlanData, currentPlanData);
   const isExceedCountLimit = checkCountLimit(listingsSoldCount, freePlanData, currentPlanData);
 
-  const {
-    aspectWidth = 1,
-    aspectHeight = 1,
-    variantPrefix = 'listing-card',
-  } = config.layout.listingImage;
-  const variants = firstImage
-    ? Object.keys(firstImage?.attributes?.variants).filter(k => k.startsWith(variantPrefix))
-    : [];
+  const aspectWidth = 1;
+  const aspectHeight = 1;
+  const variantPrefix = 'listing-card';
+  const variants = firstImage ? Object.keys(firstImage?.attributes?.variants).filter(k => k.startsWith(variantPrefix)) : [];
 
   const setActivePropsMaybe = setActiveListing
     ? {
-        onMouseEnter: () => setActiveListing(currentListing.id),
-        onMouseLeave: () => setActiveListing(null),
+        onMouseEnter: handleMouseEnter,
+        onMouseLeave: handleMouseLeave,
       }
     : null;
+
   const { wishListItems = [] } =
     (!!currentUser?.id && currentUser.attributes.profile.protectedData) || {};
 
@@ -166,27 +161,17 @@ export const ListingCardComponent = props => {
         if (index > -1) {
           wishListItems.splice(index, 1);
           const addedwishListItems = Array.from(new Set(wishListItems));
-
-          const profile = {
-            protectedData: {
-              wishListItems: addedwishListItems,
-            },
-          };
+          const profile = { protectedData: { wishListItems: addedwishListItems } };
           const result = await dispatch(updateProfile(profile));
           if (result) {
             const modifiedId = addedwishListItems?.map(elm => new UUID(elm));
-
             dispatch(wishlistListingSuccess(modifiedId));
             dispatch(fetchCurrentUser());
           }
         } else {
           wishListItems.push(currentListing.id.uuid);
           const addedwishListItems = Array.from(new Set(wishListItems));
-          const profile = {
-            protectedData: {
-              wishListItems: addedwishListItems,
-            },
-          };
+          const profile = { protectedData: { wishListItems: addedwishListItems } };
           const result = await dispatch(updateProfile(profile));
           if (result) {
             dispatch(fetchCurrentUser());
@@ -198,50 +183,69 @@ export const ListingCardComponent = props => {
     }
   };
 
-  // Check if stockQuantity exists and is greater than zero
   if (isWhishlist && stockQuantity === 0) {
-    // If stockQuantity does not exist or is zero, return null to prevent rendering
     return null;
   }
 
   return (
-    <>
-      {isWhishlist ? (
-        <div className={classes}>
-          {/* {stockQuantity ===0 && <div className={css.stockQuantity}></div>} */}
-          <NamedLink name="ListingPage" params={{ id, slug }} className={css.link}>
-            <AspectRatioWrapper
-              className={css.aspectRatioWrapper}
-              width={aspectWidth}
-              height={aspectHeight}
-              {...setActivePropsMaybe}
-            >
-              <LazyImage
-                rootClassName={css.rootForImage}
-                alt={title}
-                image={firstImage}
-                variants={variants}
-                sizes={renderSizes}
-                isListingCard={true}
-                handleFavouriteItems={handleFavouriteItems}
-                index={index}
-              />
-            </AspectRatioWrapper>
-            <div className={css.info}>
-              {/* {stockQuantity ===0?<div className={css.soldOutText}>Sold Out</div>:null} */}
-              <div className={css.title}>
-                {title?.length > 25 ? title?.slice(0, 25) + '…' : title}
-              </div>
+    <NamedLink
+      className={classes}
+      name="ListingPage"
+      params={{ id, slug }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div className={css.card}>
+        <AspectRatioWrapper
+          className={css.aspectRatioWrapper}
+          width={aspectWidth}
+          height={aspectHeight}
+          {...setActivePropsMaybe}
+        >
+          <LazyImage
+            rootClassName={css.rootForImage}
+            alt={title}
+            image={firstImage}
+            variants={variants}
+            sizes={renderSizes}
+            isListingCard={true}
+            handleFavouriteItems={handleFavouriteItems}
+            index={index}
+          />
+        </AspectRatioWrapper>
+        <div className={css.info}>
+          <div className={css.title}>{title.length > 25 ? title.slice(0, 25) + '…' : title}</div>
+          <div className={css.category}>
+            <span>{condition && getLabel(listingConditions, condition)}</span>{' '}
+            <span>{color && getLabel(listingColors, color)}</span>{' '}
+            <span>{brand ? getLabel(listingBrands, brand) : type ? getLabel(listingFieldTypes, type) : null}</span>
+          </div>
+          <div className={css.cardFooter}>
+            <PriceMaybe
+              className={css.price}
+              price={price}
+              publicData={publicData}
+              config={config}
+              intl={intl}
+            />
+            <button className={css.buyNowBtn}>
+              <FormattedMessage id="ListingCard.buyNow" />
+            </button>
+          </div>
+        </div>
+        {hover && (
+          <div className={css.hoverOverlay}>
+            <div className={css.hoverInfo}>
+              <div className={css.title}>{title.length > 25 ? title.slice(0, 25) +Here is the continuation and completion of the updated code:
+
+### ListingCard.js (continued)
+
+```javascript
++ '…' : title}</div>
               <div className={css.category}>
                 <span>{condition && getLabel(listingConditions, condition)}</span>{' '}
                 <span>{color && getLabel(listingColors, color)}</span>{' '}
-                <span>
-                  {brand
-                    ? getLabel(listingBrands, brand)
-                    : type
-                    ? getLabel(listingFieldTypes, type)
-                    : null}
-                </span>
+                <span>{brand ? getLabel(listingBrands, brand) : type ? getLabel(listingFieldTypes, type) : null}</span>
               </div>
               <div className={css.cardFooter}>
                 <PriceMaybe
@@ -256,176 +260,10 @@ export const ListingCardComponent = props => {
                 </button>
               </div>
             </div>
-          </NamedLink>
-          {/* <div>
-            {(isExceedPriceLimit ||
-              isExceedCountLimit ||
-              (!currentPlanData?.isActive && !freePlanData?.isFreePlanActive)) && (
-              <Overlay message={''}>
-                <div className={css.openListingButton}>
-                  <FormattedMessage id="AlgoliaSearchCard.openListing" />
-                </div>
-              </Overlay>
-            )}
           </div>
-          <div>
-            {businessListingUnavailable && (
-              <Overlay message={''}>
-                <PrimaryButtonInline className={css.openListingButton}>
-                  <FormattedMessage id="ManageListingCard.openListing" />
-                </PrimaryButtonInline>
-              </Overlay>
-            )}
-          </div> */}
-        </div>
-      ) : isProfile ? (
-        <div className={!stockQuantity ? css.notClickable : classes}>
-          {!stockQuantity && <div className={css.stockQuantity}></div>}
-          <NamedLink name="ListingPage" params={{ id, slug }}>
-            <AspectRatioWrapper
-              className={css.aspectRatioWrapper}
-              width={aspectWidth}
-              height={aspectHeight}
-              {...setActivePropsMaybe}
-            >
-              <LazyImage
-                rootClassName={css.rootForImage}
-                alt={title}
-                image={firstImage}
-                variants={variants}
-                sizes={renderSizes}
-                isListingCard={true}
-                handleFavouriteItems={handleFavouriteItems}
-                index={index}
-              />
-            </AspectRatioWrapper>
-            <div className={css.info}>
-              {!stockQuantity ? <div className={css.soldOutText}>Sold Out</div> : null}
-              <div className={css.title}>
-                {title.length > 25 ? title.slice(0, 25) + '…' : title}
-              </div>
-              <div className={css.category}>
-                <span>{condition && getLabel(listingConditions, condition)}</span>{' '}
-                <span>{color && getLabel(listingColors, color)}</span>{' '}
-                <span>
-                  {brand
-                    ? getLabel(listingBrands, brand)
-                    : type
-                    ? getLabel(listingFieldTypes, type)
-                    : null}
-                </span>
-              </div>
-              <div className={css.cardFooter}>
-                {!stockQuantity ? null : (
-                  <PriceMaybe
-                    className={css.price}
-                    price={price}
-                    publicData={publicData}
-                    config={config}
-                    intl={intl}
-                  />
-                )}
-                <button className={!stockQuantity ? css.seeSimilarBtn : css.buyNowBtn}>
-                  {!stockQuantity ? (
-                    <FormattedMessage id="ListingCard.soldOut" />
-                  ) : (
-                    <FormattedMessage id="ListingCard.buyNow" />
-                  )}
-                </button>
-              </div>
-            </div>
-          </NamedLink>
-          {/* <div>
-            {(isExceedPriceLimit || isExceedCountLimit || !currentPlanData?.isActive) && (
-              <Overlay message={''}>
-                <div className={css.openListingButton}>
-                  <FormattedMessage id="AlgoliaSearchCard.openListing" />
-                </div>
-              </Overlay>
-            )}
-          </div>
-          <div>
-            {businessListingUnavailable && (
-              <Overlay message={''}>
-                <PrimaryButtonInline className={css.openListingButton}>
-                  <FormattedMessage id="ManageListingCard.openListing" />
-                </PrimaryButtonInline>
-              </Overlay>
-            )}
-          </div> */}
-        </div>
-      ) : (
-        <div className={css.cardRoot}>
-          <AspectRatioWrapper
-            className={css.aspectRatioWrapper}
-            width={aspectWidth}
-            height={aspectHeight}
-            {...setActivePropsMaybe}
-          >
-            <LazyImage
-              rootClassName={css.rootForImage}
-              alt={title}
-              image={firstImage}
-              variants={variants}
-              sizes={renderSizes}
-              isListingCard={true}
-              handleFavouriteItems={handleFavouriteItems}
-              index={index}
-            />
-          </AspectRatioWrapper>
-          <div className={css.info}>
-            <div>
-              <div className={css.title}>
-                {title?.length > 25 ? title?.slice(0, 25) + '…' : title}
-              </div>
-              <div className={css.category}>
-                <span>{condition && getLabel(listingConditions, condition)}</span>{' '}
-                <span>{color && getLabel(listingColors, color)}</span>{' '}
-                <span>
-                  {brand
-                    ? getLabel(listingBrands, brand)
-                    : type
-                    ? getLabel(listingFieldTypes, type)
-                    : null}
-                </span>
-              </div>
-            </div>
-            <div className={css.cardFooter}>
-              <PriceMaybe
-                className={css.price}
-                price={price}
-                publicData={publicData}
-                config={config}
-                intl={intl}
-              />
-              <NamedLink className={css.link} name="ListingPage" params={{ id, slug }}>
-                <button className={css.buyNowBtn}>
-                  <FormattedMessage id="ListingCard.buyNow" />
-                </button>
-              </NamedLink>
-            </div>
-          </div>
-          {/* <div>
-            {(isExceedPriceLimit || isExceedCountLimit || !currentPlanData?.isActive) && (
-              <Overlay message={''}>
-                <div className={css.openListingButton}>
-                  <FormattedMessage id="AlgoliaSearchCard.openListing" />
-                </div>
-              </Overlay>
-            )}
-          </div>
-          <div>
-            {businessListingUnavailable && (
-              <Overlay message={''}>
-                <PrimaryButtonInline className={css.openListingButton}>
-                  <FormattedMessage id="ManageListingCard.openListing" />
-                </PrimaryButtonInline>
-              </Overlay>
-            )}
-          </div> */}
-        </div>
-      )}
-    </>
+        )}
+      </div>
+    </NamedLink>
   );
 };
 
@@ -443,10 +281,7 @@ ListingCardComponent.propTypes = {
   intl: intlShape.isRequired,
   listing: propTypes.listing.isRequired,
   showAuthorInfo: bool,
-
-  // Responsive image sizes hint
   renderSizes: string,
-
   setActiveListing: func,
 };
 
