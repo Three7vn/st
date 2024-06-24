@@ -1,29 +1,24 @@
-@import '../../styles/customMediaQueries.css';
+@import '../../styles/customMediaQueries.css'; /* Import custom media queries */
 
+/* Root container for the listing card */
 .root {
   display: flex;
   flex-direction: column;
   position: relative;
-  box-shadow: 0px 14px 24px 0px rgba(0, 0, 0, 0.04);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   overflow: hidden;
-  height: 100%;
-  cursor: pointer;
-  transition: transform 0.3s;
+  height: 260px; /* Adjusted height */
+  width: 160px; /* Adjusted width */
+  background: #fff;
+  border: 1px solid #F1F1F2;
 
   &:hover {
     text-decoration: none;
-    transform: scale(1.05);
   }
 }
 
-.cardRoot {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.1), 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
+/* Link styling within the card */
 .link {
   display: flex;
   flex-direction: column;
@@ -33,332 +28,156 @@
   }
 }
 
-.openListingButton {
-  background-color: #dfeafd;
-  height: 41px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #4472b7;
-  font-family: Poppins;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 16px;
-  letter-spacing: -0.2px;
-  margin-top: 10px;
-  margin-bottom: 8px;
-
-  @media (--viewportMedium) {
-    margin-top: 10px;
-    margin-bottom: 14px;
-  }
-}
-
-.notClickable {
-  position: relative;
-
-  &:hover {
-    text-decoration: none;
-  }
-
-  & img,
-  & .title {
-    opacity: 0.5;
-  }
-}
-
+/* Wrapper for the aspect ratio of the image */
 .aspectRatioWrapper {
-  transition: var(--transitionStyleButton);
-  border-radius: 15px 15px 0px 0px;
+  border-radius: 15px 15px 0 0;
   overflow: hidden;
-  min-height: 240px;
-  max-height: 240px;
-
-  @media (max-width: 767px) {
-    min-height: 131px;
-    max-height: 131px;
-  }
-
-  & span {
-    z-index: 9;
-  }
+  width: 100%;
+  height: 180px; /* Adjusted height for the image */
 }
 
+/* Image styling within the card */
 .rootForImage {
-  border-radius: 15px 15px 0px 0px;
+  border-radius: 15px 15px 0 0;
   width: 100%;
   height: 100%;
+  object-fit: cover; /* Ensure the image is not squashed */
 }
 
+/* Container for the information section of the card */
 .info {
   display: flex;
   flex-direction: column;
-  padding: 10px 16px 20px 16px;
-  flex: 1;
-  justify-content: space-between;
-
-  @media (max-width: 767px) {
-    padding: 10px 9px 9px 9px;
-  }
-}
-
-.price {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-shrink: 0;
-  margin-bottom: 4px;
-
-  @media (max-width: 767px) {
-    margin-bottom: 0px;
-  }
-}
-
-.priceValue {
-  color: var(--Darker, #0e1319);
-  font-family: Poppins;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 20px;
-
-  @media (--viewportMedium) {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  @media (max-width: 767px) {
-    font-size: 13px;
-    line-height: 32px;
-  }
-}
-
-.seeSimilarBtn {
-  display: flex;
-  width: 100%;
-  height: 32px;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  background-color: #0e1319;
-  color: var(--white, #fff);
+  padding: 2px 5px;
   text-align: center;
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  border-radius: 50px;
-  cursor: pointer;
 }
 
+/* Title styling */
+.title {
+  font-family: Poppins, sans-serif;
+  font-size: 12px; /* Adjusted font size */
+  font-weight: 500;
+  color: #0E1319;
+  margin: -1px 0; /* Reduced margin */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Container for the price, condition tag, and add to cart button */
+.priceContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5px; /* Reduced margin */
+}
+
+/* Price value styling */
+.priceValue {
+  color: #0E1319;
+  font-family: Poppins, sans-serif;
+  font-size: 14px; /* Adjusted font size */
+  font-weight: 700;
+}
+
+/* Condition tag styling */
+.conditionTag {
+  border-radius: 8px;
+  background: linear-gradient(#f6faff, #f4f9ff);
+  color: #315181;
+  font-family: Poppins, sans-serif;
+  font-size: 8px; /* Adjusted font size */
+  padding: 2px 6px; /* Adjusted padding */
+  font-weight: 300;
+  white-space: nowrap;
+}
+
+/* Add to Cart button styling */
 .buyNowBtn {
   display: flex;
-  width: 103px;
-  height: 32px;
   justify-content: center;
   align-items: center;
-  flex-shrink: 0;
-  background-color: #0e1319;
-  color: var(--white, #fff);
-  text-align: center;
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
+  width: 80px; /* Adjusted width */
+  height: 24px; /* Adjusted height */
+  background: linear-gradient(180deg, #000000, #313c49);
+  color: #fff;
+  font-family: Poppins, sans-serif;
+  font-size: 10px; /* Adjusted font size */
   font-weight: 400;
-  line-height: normal;
-  border-radius: 50px;
+  border-radius: 12px; /* Adjusted border-radius */
   cursor: pointer;
+  border: none;
 
-  @media (max-width: 767px) {
-    height: 23px;
-    font-size: 12px;
-    width: 82px;
+  &:hover {
+    transform: scale(1.05);
   }
 }
 
-.perUnit {
-  font-family: Poppins;
-  font-weight: var(--fontWeightSemiBold);
-  color: var(--marketplaceColor);
-  display: inline-flex;
-  align-items: center;
-  margin-left: 2px;
-  margin-top: 0;
-  margin-bottom: 0;
-
-  @media (--viewportMedium) {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-}
-
-.mainInfo {
-  display: flex;
-  flex-direction: column;
-}
-
-.title {
-  color: var(--Darker, #0e1319);
-  font-family: Poppins;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 32px;
-  letter-spacing: -0.75px;
-  margin: 0;
-
-  @media (max-width: 767px) {
-    font-size: 13px;
-    line-height: 32px;
-    white-space: nowrap;
-    max-width: 100%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-}
-
+/* Container for description tags */
 .category {
   display: flex;
+  justify-content: center;
+  gap: 4px; /* Adjusted gap */
   flex-wrap: wrap;
-  overflow: hidden;
-  max-width: 100%;
-  gap: 8px;
-  align-items: center;
-  margin-top: 10px;
-  padding-bottom: 0px;
-  height: 40px;
-
-  @media (max-width: 767px) {
-    display: none;
-  }
-
-  & > span {
-    border-radius: 8px;
-    background: #dfeafd;
-    color: #4472b7;
-    font-family: Poppins;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 32px;
-    padding: 0 12px;
-    white-space: nowrap;
-  }
+  margin-top: 4px; /* Adjusted margin */
 }
 
+/* Individual description tag styling */
+.category > span {
+  border-radius: 8px;
+  background: linear-gradient(#DFEAFD, #dfefff);
+  color: #315181;
+  font-family: Poppins, sans-serif;
+  font-size: 8px; /* Adjusted font size */
+  padding: 2px 6px; /* Adjusted padding */
+  font-weight: 300;
+  white-space: nowrap;
+}
+
+/* Footer of the card containing price and button */
 .cardFooter {
-  margin-top: 13px;
-  padding-top: 13px;
+  margin-top: 5px; /* Reduced margin */
+  margin-bottom: 7px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Adjusted alignment */
   align-items: center;
   border-top: 1px solid #e6e6e6;
+  padding-top: 5px; /* Reduced padding */
+  padding-left: 4px;
+  padding-right: 4px;
+}
 
-  @media (max-width: 767px) {
-    border: 0;
-    margin-top: 5px;
-    padding-top: 0px;
+/* Responsive adjustments for mobile view */
+@media (max-width: 768px) {
+  .root {
+    height: 220px; /* Adjusted height for mobile */
+    width: 140px; /* Adjusted width for mobile */
   }
-}
 
-.authorInfo {
-  font-family: Poppins;
-  font-weight: var(--fontWeightMedium);
-  color: var(--colorGrey700);
-  padding-top: 4px;
-  padding-bottom: 4px;
-  margin-top: 0;
-  margin-bottom: 0;
-
-  @media (--viewportMedium) {
-    margin-top: 0;
-    margin-bottom: 0;
+  .aspectRatioWrapper {
+    height: 160px; /* Adjusted height for the image on mobile */
   }
-}
 
-.longWord {
-  word-break: break-all;
-  word-break: break-word;
-  hyphens: auto;
-}
+  .info {
+    padding: 2px 5px;
+  }
 
-.soldOutText {
-  border-radius: 0px 15px 0px 0px;
-  background: var(--Lighter, #4c5368);
-  color: var(--white, #fff);
-  font-family: Poppins;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 32px;
-  letter-spacing: -0.75px;
- ```css
-  padding: 3px 15px;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
+  .title {
+    font-size: 10px; /* Adjusted font size for mobile */
+  }
 
-.stockQuantity {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 5;
-}
+  .priceValue {
+    font-size: 10px; /* Adjusted font size for mobile */
+  }
 
-.hoverOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px;
-  pointer-events: none;
-}
+  .conditionTag {
+    font-size: 7px; /* Adjusted font size for mobile */
+    padding: 1px 5px; /* Adjusted padding for mobile */
+  }
 
-.hoverInfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.hoverInfo .title {
-  font-size: 24px;
-  color: #fff;
-  margin-bottom: 8px;
-}
-
-.hoverInfo .category {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.hoverInfo .category span {
-  background: #fff;
-  color: #0e1319;
-  font-weight: 500;
-  padding: 2px 8px;
-  border-radius: 5px;
-}
-
-.hoverInfo .price {
-  color: #fff;
-  font-size: 20px;
-  margin-top: 10px;
-}
-
-.hoverInfo .buyNowBtn {
-  background: #fff;
-  color: #0e1319;
-  margin-top: 10px;
+  .buyNowBtn {
+    font-size: 10px; /* Adjusted font size for mobile */
+    width: 70px; /* Adjusted width for mobile */
+    height: 20px; /* Adjusted height for mobile */
+  }
 }
