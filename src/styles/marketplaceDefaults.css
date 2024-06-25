@@ -25,6 +25,7 @@
   --marketplaceColor: #383f52; /* hsl(260, 63%, 46%) */
   --marketplaceColorLight: #4c5368; /* hsl(260, 63%, 56%), +10L from marketplaceColor */
   --marketplaceColorDark: rgb(56, 26, 116); /* hsl(260, 63%, 26%), -10L from marketplaceColor */
+  --marketplaceColorTertiary: #F0B90B;
 
   /* Colors used for different functions (like error texts) */
 

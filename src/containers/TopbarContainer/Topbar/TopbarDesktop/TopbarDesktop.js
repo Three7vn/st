@@ -43,6 +43,16 @@ const SignupLink = () => {
   );
 };
 
+const Sell = () => {
+  return (
+    <NamedLink name="SignupPage" className={classNames(css.topbarLink, css.sell)}>
+      <span className={css.topbarLinkLabel}>
+        <FormattedMessage id="TopbarDesktop.createListing" />
+      </span>
+    </NamedLink>
+  );
+};
+
 const ReferAndEarn = () => {
   return (
     <NamedLink name="SignupPage" className={classNames(css.topbarLink, css.referAndEarn)}>
@@ -52,6 +62,20 @@ const ReferAndEarn = () => {
     </NamedLink>
   );
 };
+
+const StokenBalance = () => {
+  return (
+    <div className={css.stokens}>
+      <img
+        src={require('../../../../assets/Stokens.svg').default}
+        alt="Stokens Icon"
+        width={25}
+        height={25}
+      />
+      <p>1200</p> {/* Will be replaced with a call to the database for a users individual points */}
+    </div>
+  );
+}
 
 const LoginLink = () => {
   return (
@@ -387,7 +411,7 @@ const TopbarDesktop = props => {
 
   const profileMenuMaybe = authenticatedOnClientSide ? (
     <ProfileMenu currentPage={currentPage} currentUser={currentUser} onLogout={onLogout} />
-  ) : null;
+  ) : <ProfileMenu currentPage={currentPage} currentUser={currentUser} onLogout={onLogout} />;
 
   const categoryMenuMaybe = (
     <CatgeoryMenu
@@ -410,25 +434,34 @@ const TopbarDesktop = props => {
   const addToCartIcon = authenticatedOnClientSide ? (
     <NamedLink name="CartPage">
       <span className={css.cartItemWrappper}>
-        <span className={css.cartCount}>
-          <span className={css.badge}>{cartItems?.length > 0 ? cartItems?.length : 0}</span>
-        </span>
         <IconCollection icon="addCartIcon" />
       </span>
     </NamedLink>
   ) : (
     <NamedLink name="SignupPage">
       <span className={css.cartItemWrappper}>
-        <span className={css.cartCount}>
-          <span className={css.badge}>{0}</span>
-        </span>
         <IconCollection icon="addCartIcon" />
+      </span>
+    </NamedLink>
+  );
+
+  const wishlistIcon = authenticatedOnClientSide ? (
+    <NamedLink name="wishlist">
+      <span className={css.cartItemWrappper}>
+        <IconCollection icon="likeIcon" />
+      </span>
+    </NamedLink>
+  ) : (
+    <NamedLink name="SignupPage">
+      <span className={css.cartItemWrappper}>
+        <IconCollection icon="likeIcon" />
       </span>
     </NamedLink>
   );
 
   const signupLinkMaybe = isAuthenticatedOrJustHydrated ? null : <SignupLink />;
   const referAndEarn = isAuthenticatedOrJustHydrated ? null : <ReferAndEarn />;
+  const sell = isAuthenticatedOrJustHydrated ? null : <Sell />;
   const loginLinkMaybe = isAuthenticatedOrJustHydrated ? null : <LoginLink />;
 
   return (
@@ -493,24 +526,19 @@ const TopbarDesktop = props => {
         {chatIcon}
         {inboxLinkMaybe}
 
-        <span className={css.addToCartIcon}> {isAuthenticatedOrJustHydrated && addToCartIcon}</span>
-        {profileMenuMaybe}
-        {!isAuthenticatedOrJustHydrated && (
-          <div className={css.customLink}>
-            <CustomLinksMenu
-              currentPage={currentPage}
-              customLinks={customLinks}
-              intl={intl}
-              hasClientSideContentReady={
-                authenticatedOnClientSide || !isAuthenticatedOrJustHydrated
-              }
-            />
-          </div>
-        )}
+
+        {sell}
         {referAndEarn}
+
+        <StokenBalance />
+
+        {!isAuthenticatedOrJustHydrated && wishlistIcon}
         {!isAuthenticatedOrJustHydrated && addToCartIcon}
         {/* {signupLinkMaybe}
         {loginLinkMaybe} */}
+
+        {profileMenuMaybe}
+
       </div>
     </nav>
   );

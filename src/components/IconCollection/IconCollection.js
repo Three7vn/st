@@ -775,7 +775,7 @@ const IconCollection = props => {
           </filter>
           </defs>
           </svg>
-          
+
         );
     default:
       return (

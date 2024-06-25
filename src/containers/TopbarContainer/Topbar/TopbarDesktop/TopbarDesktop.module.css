@@ -346,6 +346,7 @@
 }
 .cartItemWrappper {
   position: relative;
+  margin: 3px;
 
   & .cartCount {
     position: absolute;
@@ -449,6 +450,22 @@
   & span {
     margin: 0;
     color: #000;
+    font-weight: 600;
+  }
+  &:hover {
+    border-radius: 50px;
+  }
+}
+
+.sell {
+  padding: 7px 22px;
+  background: var(--marketplaceColor);
+  color: var(--marketplaceColorTertiary);
+  border-radius: 50px;
+  border: solid;
+  border-color: var(--marketplaceColorTertiary);
+  & span {
+    margin: 0;
     font-weight: 600;
   }
   &:hover {
@@ -582,4 +599,13 @@
     height: 25px;
     max-width: 25px;
   }
+}
+
+.stokens {
+  display: flex;
+  justify-content: center;
+  color: var(--marketplaceColorTertiary);
+  gap: 3px;
+  margin: 10px;
+  align-items: center;
 }
